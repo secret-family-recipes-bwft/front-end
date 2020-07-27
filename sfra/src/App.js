@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Dasboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -17,6 +19,10 @@ function App() {
 
       <Route exact path="/SignUp">
         <SignUp />
+      </Route>
+
+      <Route exact path="/dash">
+        <Dashboard />
       </Route>
     </div>
   );

@@ -23,7 +23,7 @@ export default function SignUp() {
       <h1>Nice to meet you</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="name"
+          label="Name"
           type="name"
           name="name"
           value={formState.name}
@@ -56,7 +56,9 @@ export default function SignUp() {
         <br />
         <br />
         <br />
-        <button>Sign Up</button>
+        <Link to="/dash">
+          <button>Sign Up</button>
+        </Link>
       </form>
       <h1>I have an account</h1>
       <Link to="/">
