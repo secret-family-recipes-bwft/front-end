@@ -12,6 +12,7 @@ import Expectations from "./components/RecipeForm/Expectations";
 import StartScreen3 from "./components/RecipeForm/StartScreen3";
 import Ingredients from "./components/RecipeForm/Ingredients";
 import Directions from "./components/RecipeForm/Directions";
+import SuccessPage from "./components/RecipeForm/SuccessPage";
 
 function App() {
   return (
@@ -58,6 +59,10 @@ function App() {
 
       <Route exact path="/the-directions">
         <Directions />
+      </Route>
+
+      <Route exact path="/recipe-created-success">
+        <SuccessPage />
       </Route>
     </div>
   );
