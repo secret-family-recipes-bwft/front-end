@@ -26,7 +26,7 @@ export default function TheStoryTradition() {
       <h1>Share the story </h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Who originated this story? "
+          label="Who originated this recipe? "
           type="text"
           name="recipeOriginator"
           placeholder="Grandma Pearl"

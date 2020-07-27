@@ -8,10 +8,10 @@ export default function StartScreen() {
       <header>
         <ul>
           <p>Secret Family Recipe App</p>
-          <p>Step 2: What can you expect from this recipe? </p>
+          <p>Step 3: How do you make this recipe?</p>
         </ul>
       </header>
-      <h1>Almost done!</h1>
+      <h1>How is it made?</h1>
       <div>
         <StepDiv
           step="STEP 1"
@@ -44,7 +44,7 @@ export default function StartScreen() {
         </Link>
 
         <br />
-        <Link to="/the-expectations">
+        <Link to="/the-ingredients">
           <button>Next</button>
         </Link>
       </div>
