@@ -17,7 +17,7 @@ export default function Dashboard() {
           <Link to="/dash">
             <p>Secret Family Recipe App</p>
           </Link>
-          <Link to="/recipe-form">
+          <Link to="/start-screen">
             <button>+Create Recipe</button>
           </Link>
         </ul>
@@ -37,7 +37,7 @@ export default function Dashboard() {
 
       <div>
         <h3>Oh no! You don’t have any recipes</h3>
-        <Link to="/recipe-form">
+        <Link to="/start-screen">
           <p>+Create First Recipe</p>
         </Link>
       </div>

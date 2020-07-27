@@ -3,8 +3,8 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Dasboard from "./components/Dashboard";
 import Dashboard from "./components/Dashboard";
+import StartScreen from "./components/RecipeForm/StartScreen";
 
 function App() {
   return (
@@ -23,6 +23,10 @@ function App() {
 
       <Route exact path="/dash">
         <Dashboard />
+      </Route>
+
+      <Route exact path="/start-screen">
+        <StartScreen />
       </Route>
     </div>
   );
