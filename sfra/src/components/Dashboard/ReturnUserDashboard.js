@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import RecipeCards from "./RecipeCards";
 
 export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" });
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://bw-secret-family-recipes-1.herokuapp.com/api/recipes")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   function handleChange(e) {
     setSearch({ ...search, [e.target.name]: e.target.value });
   }
@@ -34,13 +49,8 @@ export default function ReturnUserDashboard() {
             onChange={handleChange}
           />
         </form>
-      </div>
 
-      <div>
-        <h3>Oh no! You don’t have any recipes</h3>
-        <Link to="/start-screen">
-          <p>+Create First Recipe</p>
-        </Link>
+        <RecipeCards />
       </div>
     </div>
   );

@@ -1,21 +1,51 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "./Input";
+import axios from "axios";
 
 export default function SignUp() {
   const defaultState = {
-    name: "",
+    username: "",
     email: "",
     password: "",
-    terms: "",
+    // terms: false,
   };
+
   const [formState, setFormState] = useState(defaultState);
+  const [user, setUser] = useState({});
+
+  const postUser = (input) => {
+    axios
+      .post(
+        "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/register",
+        input
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   function handleChange(e) {
-    formState({ ...defaultState, [e.target.name]: e.target.value });
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+    setFormState({ ...formState, [e.target.name]: value });
+    // const onCheckBoxChange = (evt) => {
+    //   const checked = evt.target.checked;
+    //   console.log(checked);
+    //   setFormValues({
+    //     ...formValues,
+    //     termsOfService: checked,
+    //   });
+    // };
   }
   function handleSubmit(e) {
     e.preventDefault();
-    formState(defaultState);
+    postUser(formState);
+    setFormState(defaultState);
   }
 
   return (
@@ -23,10 +53,10 @@ export default function SignUp() {
       <h1>Nice to meet you</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Name"
-          type="name"
-          name="name"
-          value={formState.name}
+          label="username"
+          type="username"
+          name="username"
+          value={formState.username}
           onChange={handleChange}
         />
         <Input
@@ -43,7 +73,7 @@ export default function SignUp() {
           value={formState.password}
           onChange={handleChange}
         />
-        <label htmlFor="terms">
+        {/* <label htmlFor="terms">
           Terms and Conditions
           <input
             type="checkbox"
@@ -52,13 +82,13 @@ export default function SignUp() {
             value={formState.terms}
             onChange={handleChange}
           />
-        </label>
+        </label> */}
         <br />
         <br />
         <br />
-        <Link to="/new-user-dash">
-          <button>Sign Up</button>
-        </Link>
+        {/* <Link to="/new-user-dash"> */}
+        <button>Sign Up</button>
+        {/* </Link> */}
       </form>
       <h1>I have an account</h1>
       <Link to="/">

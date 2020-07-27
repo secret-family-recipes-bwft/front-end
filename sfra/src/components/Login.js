@@ -1,19 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Input from "./Input";
+import axios from "axios";
 
 export default function Login() {
   const defaultState = {
-    email: "",
+    username: "",
     password: "",
   };
+
+  // api/auth/register
+
+  // useEffect(() => {
+  //   axios.post(
+  //     "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login", formState
+  //   ).then()
+  // }, []);
+
+  // const postUser = aUser => {
+  //   axios.post(
+  //     "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login", aUser
+  //   ).then(res => {
+  //     setUser
+  //   })
+  // }
+
   const [formState, setFormState] = useState(defaultState);
+  const [user, setUser] = useState({});
+
+  const postUser = (input) => {
+    axios
+      .post(
+        "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login",
+        input
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   function handleChange(e) {
-    formState({ ...defaultState, [e.target.name]: e.target.value });
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
   }
   function handleSubmit(e) {
     e.preventDefault();
-    formState(defaultState);
+    postUser(formState);
+    setFormState(defaultState);
   }
 
   return (
@@ -21,10 +59,10 @@ export default function Login() {
       <h1>Welcome Back</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Email"
-          type="email"
-          name="email"
-          value={formState.email}
+          label="Username"
+          type="username"
+          name="username"
+          value={formState.username}
           onChange={handleChange}
         />
         <Input
@@ -35,9 +73,9 @@ export default function Login() {
           onChange={handleChange}
         />
         <br />
-        <Link to="/return-user-dash">
-          <button>Login</button>
-        </Link>
+        {/* <Link to="/return-user-dash"> */}
+        <button>Login</button>
+        {/* </Link> */}
       </form>
       <h1>Im new here</h1>
       <Link to="/SignUp">
