@@ -38,10 +38,11 @@ export default function Directions() {
             value={formState.step1}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 1"
           />
         </label>
+        <br />
         <label htmlFor="step2">
           <br />
           <textarea
@@ -49,10 +50,11 @@ export default function Directions() {
             value={formState.step2}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 2"
           />
         </label>
+        <br />
         <label htmlFor="step3">
           <br />
           <textarea
@@ -60,10 +62,11 @@ export default function Directions() {
             value={formState.step3}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 3"
           />
         </label>
+        <br />
         <label htmlFor="step4">
           <br />
           <textarea
@@ -71,10 +74,11 @@ export default function Directions() {
             value={formState.step4}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 4"
           />
         </label>
+        <br />
         <label htmlFor="step5">
           <br />
           <textarea
@@ -82,10 +86,11 @@ export default function Directions() {
             value={formState.step5}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 5"
           />
         </label>
+        <br />
         <label htmlFor="step6">
           <br />
           <textarea
@@ -93,10 +98,11 @@ export default function Directions() {
             value={formState.step6}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 6"
           />
         </label>
+        <br />
         <label htmlFor="step7">
           <br />
           <textarea
@@ -104,10 +110,11 @@ export default function Directions() {
             value={formState.step7}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 7"
           />
         </label>
+        <br />
         <label htmlFor="step8">
           <br />
           <textarea
@@ -115,10 +122,11 @@ export default function Directions() {
             value={formState.step8}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 8"
           />
         </label>
+        <br />
         <label htmlFor="step9">
           <br />
           <textarea
@@ -126,10 +134,11 @@ export default function Directions() {
             value={formState.step9}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 9"
           />
         </label>
+        <br />
         <label htmlFor="step10">
           <br />
           <textarea
@@ -137,10 +146,11 @@ export default function Directions() {
             value={formState.step10}
             onChange={handleChange}
             cols="30"
-            rows="10"
+            rows="4"
             placeholder="Step 10"
           />
         </label>
+
         <br />
         <br />
         <button>+Add Step</button>
@@ -159,7 +169,7 @@ export default function Directions() {
           </Link>
 
           <br />
-          <Link to="/the-directions">
+          <Link to="/recipe-created-success">
             <button>Next</button>
           </Link>
         </div>
