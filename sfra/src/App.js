@@ -10,6 +10,7 @@ import TheStoryTradition from "./components/RecipeForm/TheStoryTradition";
 import StartScreen2 from "./components/RecipeForm/StartScreen2";
 import Expectations from "./components/RecipeForm/Expectations";
 import StartScreen3 from "./components/RecipeForm/StartScreen3";
+import Ingredients from "./components/RecipeForm/Ingredients";
 
 function App() {
   return (
@@ -48,6 +49,10 @@ function App() {
 
       <Route exact path="/start-screen-3">
         <StartScreen3 />
+      </Route>
+
+      <Route exact path="/the-ingredients">
+        <Ingredients />
       </Route>
     </div>
   );

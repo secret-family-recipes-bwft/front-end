@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import StepDiv from "./StepDiv";
 import { Link } from "react-router-dom";
 
-export default function StartScreen() {
+export default function StartScreen3() {
   return (
     <div>
       <header>
