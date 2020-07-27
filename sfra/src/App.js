@@ -3,7 +3,8 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import Dashboard from "./components/Dashboard";
+import NewUserDashboard from "./components/Dashboard/NewUserDashboard";
+import ReturnUserDashboard from "./components/Dashboard/ReturnUserDashboard";
 import StartScreen from "./components/RecipeForm/StartScreen";
 import TheStoryBasics from "./components/RecipeForm/TheStoryBasics";
 import TheStoryTradition from "./components/RecipeForm/TheStoryTradition";
@@ -20,13 +21,16 @@ function App() {
       <Route exact path="/">
         <Login />
       </Route>
+      <Route exact path="/return-user-dash">
+        <ReturnUserDashboard />
+      </Route>
 
       <Route exact path="/SignUp">
         <SignUp />
       </Route>
 
-      <Route exact path="/dash">
-        <Dashboard />
+      <Route exact path="/new-user-dash">
+        <NewUserDashboard />
       </Route>
 
       <Route exact path="/start-screen">

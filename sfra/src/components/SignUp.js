@@ -56,7 +56,7 @@ export default function SignUp() {
         <br />
         <br />
         <br />
-        <Link to="/dash">
+        <Link to="/new-user-dash">
           <button>Sign Up</button>
         </Link>
       </form>
