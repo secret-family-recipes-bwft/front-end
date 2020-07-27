@@ -5,14 +5,12 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
 import StartScreen from "./components/RecipeForm/StartScreen";
-
+import TheStoryBasics from "./components/RecipeForm/TheStoryBasics";
+import TheStoryTradition from "./components/RecipeForm/TheStoryTradition";
+import StartScreen2 from "./components/RecipeForm/StartScreen2";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h4>Secret Family Recipe App</h4>
-      </header>
-
       <Route exact path="/">
         <Login />
       </Route>
@@ -27,6 +25,18 @@ function App() {
 
       <Route exact path="/start-screen">
         <StartScreen />
+      </Route>
+
+      <Route exact path="/the-story-basics">
+        <TheStoryBasics />
+      </Route>
+
+      <Route exact path="/the-story-tradition">
+        <TheStoryTradition />
+      </Route>
+
+      <Route exact path="/start-screen-2">
+        <StartScreen2 />
       </Route>
     </div>
   );

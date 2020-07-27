@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
-export default function Input({ label, name, type, value, onChange, errors }) {
+export default function Input({
+  label,
+  name,
+  type,
+  value,
+  onChange,
+  errors,
+  placeholder,
+}) {
   return (
     <div>
       <label htmlFor={label}>
@@ -12,6 +20,7 @@ export default function Input({ label, name, type, value, onChange, errors }) {
           value={value}
           onChange={onChange}
           errors={errors}
+          placeholder={placeholder}
         />
       </label>
       <br />

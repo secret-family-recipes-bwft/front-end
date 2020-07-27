@@ -8,10 +8,10 @@ export default function StartScreen() {
       <header>
         <ul>
           <p>Secret Family Recipe App</p>
-          <p>Step 1: What’s the story? </p>
+          <p>Step 2: What can you expect from this recipe? </p>
         </ul>
       </header>
-      <h1>Create a recipe in 3 easy steps</h1>
+      <h1>Almost done!</h1>
       <div>
         <StepDiv
           step="STEP 1"
