@@ -1,5 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import SecondaryButton from "../Styles/SecondaryButton";
+import styled from "styled-components";
+
+const Header = styled.div`
+  display: flex;
+  width: 100%
+  height: 140px;
+  justify-content: space-between;
+`;
+
+const Logo = styled.h2`
+  font-family: "airbnb_cereal_appbold";
+  font-size: 18px;
+  margin-top: 40px;
+  margin-left: 80px;
+  color: black;
+  flex-grow: 6;
+`;
 
 export default function NewUserDashboard() {
   const [search, setSearch] = useState({ search: "" });
@@ -12,16 +30,15 @@ export default function NewUserDashboard() {
 
   return (
     <div>
-      <header>
-        <ul>
-          <Link to="/dash">
-            <p>Secret Family Recipe App</p>
-          </Link>
-          <Link to="/start-screen">
-            <button>+Create Recipe</button>
-          </Link>
-        </ul>
-      </header>
+      <Header>
+        <Link style={{ textDecoration: "none" }} to="/dash">
+          <Logo>Family Recipe App</Logo>
+        </Link>
+
+        <Link to="/start-screen">
+          <SecondaryButton action="+Create Recipe" />
+        </Link>
+      </Header>
 
       <div>
         <h2>Search Recipes</h2>

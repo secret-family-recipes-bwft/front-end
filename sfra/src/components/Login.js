@@ -19,7 +19,7 @@ const Header = styled.div`
 `;
 
 const Logo = styled.h2`
-  fontfamily: "airbnb_cereal_appbook";
+  font-family: "airbnb_cereal_appbold";
   font-size: 18px;
   margin-top: 40px;
   margin-bottom: 70px;
