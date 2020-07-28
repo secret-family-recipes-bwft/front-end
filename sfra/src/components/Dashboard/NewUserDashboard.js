@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
+import noRecipe from "./noRecipe.svg";
 
 const Header = styled.div`
   display: flex;
@@ -17,6 +18,48 @@ const Logo = styled.h2`
   margin-left: 80px;
   color: black;
   flex-grow: 6;
+`;
+
+const SearchDiv = styled.div`
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+const SearchHeading = styled.h3`
+  fontfamily: "airbnb_cereal_appbook";
+  font-size: 24px;
+  margin-bottom: 20px;
+`;
+
+const SearchInput = styled.input`
+  width: 510px;
+  height: 40px;
+  border: 1px solid #797979;
+  border-radius: 30px;
+  // margin-bottom: 120px;
+`;
+
+const ContentDivider = styled.div`
+  width: 860px;
+  height: 0px;
+  border: 1px solid #bdbdbd;
+  margin: 0 auto;
+  margin-top: 120px;
+`;
+
+const OoppsDiv = styled.div`
+height: 400px;
+width: 100%
+display: flex;
+flex-direction: column;
+justify-content: center;
+`;
+
+const OoppsImg = styled.img`
+  width: 150px;
+  height: 150px;
 `;
 
 export default function NewUserDashboard() {
@@ -40,24 +83,28 @@ export default function NewUserDashboard() {
         </Link>
       </Header>
 
-      <div>
-        <h2>Search Recipes</h2>
+      <SearchDiv>
+        <SearchHeading>Search Recipes</SearchHeading>
         <form onSubmit={handleSubmit}>
-          <input
+          <SearchInput
             type="text"
             name="search"
             value={search.search}
             onChange={handleChange}
           />
         </form>
-      </div>
+      </SearchDiv>
 
-      <div>
+      <ContentDivider />
+
+      <OoppsDiv>
+        <OoppsImg src={noRecipe} alt="kitchen" />
+
         <h3>Oh no! You don’t have any recipes</h3>
         <Link to="/start-screen">
           <p>+Create First Recipe</p>
         </Link>
-      </div>
+      </OoppsDiv>
     </div>
   );
 }
