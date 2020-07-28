@@ -4,7 +4,7 @@ import styled from "styled-components";
 const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 260px;
   // justify-content: flex-start;
   // align-items: flex-start;
   // align-content: flex-start;
@@ -22,7 +22,7 @@ const InputLabel = styled.label`
 const InputField = styled.input`
   border: none;
   border-bottom: 1px solid #2d2e32;
-  width: 256px;
+  width: 100%;
 `;
 
 export default function TextInputStyle({
