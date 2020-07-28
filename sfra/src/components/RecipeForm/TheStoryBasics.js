@@ -4,9 +4,9 @@ import Input from "../Input";
 
 export default function TheStoryBasics() {
   const defaultState = {
-    recipeName: "",
-    recipeImageURL: "",
-    recipeType: "",
+    title: "",
+    picture_url: "",
+    category: "",
     originCountry: "",
   };
   const [formState, setFormState] = useState(defaultState);
@@ -28,28 +28,27 @@ export default function TheStoryBasics() {
         <Input
           label="What’s the name of your recipe?"
           type="text"
-          name="recipeName"
+          name="title"
           placeholder="Recipe Name"
-          value={formState.recipeName}
+          value={formState.title}
           onChange={handleChange}
         />
         <Input
           label="Upload an image"
           type="text"
-          name="recipeImageURL"
-          value={formState.recipeImageURL}
+          name="picture_url"
+          value={formState.picture_url}
           onChange={handleChange}
           placeholder="Image of recipe"
         />{" "}
-        <label htmlFor="recipeType">
+        <label htmlFor="category">
           What type of recipe is this?
           <br />
           <select
-            name="recipeType"
-            value={formState.recipeType}
+            name="category"
+            value={formState.category}
             onChange={handleChange}
           >
-            <option value="RecipeType">Recipe Type</option>
             <option value="Breakfast">Breakfast</option>
             <option value="Lunch">Lunch</option>
             <option value="Dinner">Dinner</option>

@@ -50,7 +50,9 @@ export default function SignUp() {
 
   return (
     <div>
-      <h1>Nice to meet you</h1>
+      <h1 style={{ fontFamily: "airbnb_cereal_appmedium" }}>
+        Nice to meet you
+      </h1>
       <form onSubmit={handleSubmit}>
         <Input
           label="Username"

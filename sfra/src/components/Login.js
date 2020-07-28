@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Input from "./Input";
 import axios from "axios";
+import TextInputStyle from "./Styles/TextInputStyle";
 
 export default function Login() {
   const defaultState = {
@@ -58,14 +59,14 @@ export default function Login() {
     <div>
       <h1 style={{ fontFamily: "airbnb_cereal_appmedium" }}>Welcome Back</h1>
       <form onSubmit={handleSubmit}>
-        <Input
+        <TextInputStyle
           label="Username"
           type="username"
           name="username"
           value={formState.username}
           onChange={handleChange}
         />
-        <Input
+        <TextInputStyle
           label="Password"
           type="password"
           name="password"
