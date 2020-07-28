@@ -35,7 +35,7 @@ export default function Login() {
         input
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +56,7 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Welcome Back</h1>
+      <h1 style={{ fontFamily: "airbnb_cereal_appmedium" }}>Welcome Back</h1>
       <form onSubmit={handleSubmit}>
         <Input
           label="Username"
@@ -73,9 +73,9 @@ export default function Login() {
           onChange={handleChange}
         />
         <br />
-        {/* <Link to="/return-user-dash"> */}
-        <button>Login</button>
-        {/* </Link> */}
+        <Link to="/return-user-dash">
+          <button>Login</button>
+        </Link>
       </form>
       <h1>Im new here</h1>
       <Link to="/SignUp">

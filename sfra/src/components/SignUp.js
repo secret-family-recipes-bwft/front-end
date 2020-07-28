@@ -21,7 +21,7 @@ export default function SignUp() {
         input
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -53,7 +53,7 @@ export default function SignUp() {
       <h1>Nice to meet you</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          label="username"
+          label="Username"
           type="username"
           name="username"
           value={formState.username}
@@ -86,9 +86,9 @@ export default function SignUp() {
         <br />
         <br />
         <br />
-        {/* <Link to="/new-user-dash"> */}
-        <button>Sign Up</button>
-        {/* </Link> */}
+        <Link to="/new-user-dash">
+          <button>Sign Up</button>
+        </Link>
       </form>
       <h1>I have an account</h1>
       <Link to="/">
