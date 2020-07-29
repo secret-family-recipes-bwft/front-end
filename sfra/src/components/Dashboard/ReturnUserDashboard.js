@@ -58,18 +58,19 @@ export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" }); // Stretch
   const [userRecipes, setUserRecipes] = useState(DummyData);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `https://bw-secret-family-recipes-1.herokuapp.com/api/users/:${id}/recipes`
-  //     )
-  //     .then((res) => {
-  //       console.log(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(
+        // `https://bw-secret-family-recipes-1.herokuapp.com/api/users/2/recipes`
+        `https://bw-secret-family-recipes-1.herokuapp.com/api/recipes`
+      )
+      .then((res) => {
+        console.log("Hello!!", res.data);
+      })
+      .catch((err) => {
+        console.log("Failed!!", err);
+      });
+  }, []);
 
   function handleChange(e) {
     setSearch({ ...search, [e.target.name]: e.target.value });
@@ -105,7 +106,7 @@ export default function ReturnUserDashboard() {
       <CardContainer>
         {userRecipes.map((crrObj) => {
           return (
-            <Link to="/user-recipe/:id">
+            <Link style={{ textDecoration: "none" }} to="/user-recipe/:id">
               <RecipeCards
                 category={crrObj.category}
                 title={crrObj.title}

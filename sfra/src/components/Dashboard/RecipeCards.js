@@ -25,6 +25,7 @@ const RecipeName = styled.p`
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 0px;
+  color: black;
 `;
 
 const PrepTime = styled.p`
