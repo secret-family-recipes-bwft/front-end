@@ -14,6 +14,7 @@ import StartScreen3 from "./components/RecipeForm/StartScreen3";
 import Ingredients from "./components/RecipeForm/Ingredients";
 import Directions from "./components/RecipeForm/Directions";
 import SuccessPage from "./components/RecipeForm/SuccessPage";
+import RecipePageStyle from "./components/Styles/RecipePageStyle";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
       </Route>
       <Route exact path="/return-user-dash">
         <ReturnUserDashboard />
+      </Route>
+
+      <Route exact path="/user-recipe/:id">
+        <RecipePageStyle />
       </Route>
 
       <Route exact path="/SignUp">

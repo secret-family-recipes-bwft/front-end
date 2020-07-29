@@ -6,7 +6,6 @@ export default function Expectations() {
   const defaultState = {
     prepTime: "",
     servingSize: "",
-    recipeType: "",
     none: false,
     shellFish: false,
     nuts: false,
