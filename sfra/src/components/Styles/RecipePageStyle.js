@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import country from "./country.svg";
 // import DummyData from "../../DummyData";
 // import SecondaryButton from "./SecondaryButton";
 
@@ -9,7 +10,7 @@ const PageContainer = styled.div`
   height: 3523px;
   display: flex;
   flex-direction: column;
-  background-color: pink;
+  // background-color: pink;
 `;
 
 const HeroContainer = styled.div`
@@ -17,7 +18,7 @@ const HeroContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f46060;
+  // background-color: #f46060;
 `;
 
 const RecipeImage = styled.img`
@@ -114,7 +115,7 @@ const ContentWrapper = styled.div`
   width: 100vw;
   height: 2900px;
   display: flex;
-  background-color: #f46060;
+  // background-color: #f46060;
   margin-top: 100px;
 `;
 
@@ -122,8 +123,10 @@ const HigherOrderContent = styled.div`
   width: 50vw;
   height: 2900px;
   display: flex;
-  background-color: #ffc702;
+  flex-direction: column;
+  // background-color: #ffc702;
   margin-top: 100px;
+  align-items: center;
 `;
 // RecipeFacts
 
@@ -131,7 +134,7 @@ const RecipeFacts = styled.div`
   width: 50vw;
   height: 2900px;
   display: flex;
-  background-color: #4a87e8;
+  // background-color: #4a87e8;
   margin-top: 100px;
 `;
 
@@ -139,7 +142,7 @@ const OriginatorDiv = styled.div`
   width: 100%;
   height: 400px;
   display: flex;
-  background-color: green;
+  // background-color: green;
   // margin-top: 100px;
   align-items: center;
   justify-content: space-evenly;
@@ -157,17 +160,75 @@ const OriginatorIMG = styled.img`
 const OriginatorDetailDiv = styled.div`
   width: 40%;
   height: 100%;
-  background-color: orange;
+  // background-color: orange;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
 const OriginatorTitle = styled.h3`
-  font-size: 46px;
+  font-size: 64px;
+  font-family: "La Belle Aurore", cursive;
+  font-weight: normal;
+  margin-bottom: 0px;
+  text-align: left;
 `;
+
 const OriginatorName = styled.h3`
+  margin-top: 0px;
+  margin-bottom: 80px;
   font-size: 24px;
+  text-align: left;
+`;
+
+const CountryDiv = styled.div`
+  width: 500px;
+  height: 200px;
+  background: #f7f7f7;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+`;
+
+const SvgIMG = styled.img`
+  width: 100px;
+  height: 100px;
+  margin-left: 70px;
+`;
+
+// <CountryDetailsDiv>
+//   <Question>Country of Origin</Question>
+//   <Answer>Italy</Answer>
+// </CountryDetailsDiv>;
+
+const CountryDetailsDiv = styled.div`
+  width: 70%;
+  height: 100%;
+  // background: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Question = styled.h3`
+  font-size: 24px;
+  text-align: left;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  // font-weight: normal;
+`;
+
+const Answer = styled.h3`
+  font-size: 20px;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 10px;
+  color: #484848;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
 `;
 
 export default function RecipePageStyle() {
@@ -200,6 +261,13 @@ export default function RecipePageStyle() {
               <OriginatorName>Grandma Pearl</OriginatorName>
             </OriginatorDetailDiv>
           </OriginatorDiv>
+          <CountryDiv>
+            <SvgIMG src={country} />
+            <CountryDetailsDiv>
+              <Question>Country of Origin</Question>
+              <Answer>Italy</Answer>
+            </CountryDetailsDiv>
+          </CountryDiv>
         </HigherOrderContent>
         <RecipeFacts></RecipeFacts>
       </ContentWrapper>
