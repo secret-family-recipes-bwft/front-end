@@ -88,10 +88,10 @@ export default function Login() {
         input
       )
       .then((res) => {
-        console.log(res.data);
+        console.log("Success logged in", res.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Faild logged in", err);
       });
   };
 

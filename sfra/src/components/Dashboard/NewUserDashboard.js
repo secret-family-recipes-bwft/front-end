@@ -55,11 +55,25 @@ width: 100%
 display: flex;
 flex-direction: column;
 justify-content: center;
+margin-top: 90px;
 `;
 
 const OoppsImg = styled.img`
   width: 150px;
   height: 150px;
+`;
+
+const OoppsMSG = styled.h3`
+  fontfamily: "airbnb_cereal_appbook";
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #bdbdbd;
+`;
+
+const CreateRecipeLink = styled.p`
+  color: #317df6;
+  font-size: 18px;
+  font-family: "airbnb_cereal_appmedium";
 `;
 
 export default function NewUserDashboard() {
@@ -100,9 +114,9 @@ export default function NewUserDashboard() {
       <OoppsDiv>
         <OoppsImg src={noRecipe} alt="kitchen" />
 
-        <h3>Oh no! You don’t have any recipes</h3>
-        <Link to="/start-screen">
-          <p>+Create First Recipe</p>
+        <OoppsMSG>Oh no! You don’t have any recipes</OoppsMSG>
+        <Link style={{ textDecoration: "none" }} to="/start-screen">
+          <CreateRecipeLink>+Create First Recipe</CreateRecipeLink>
         </Link>
       </OoppsDiv>
     </div>
