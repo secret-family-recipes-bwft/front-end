@@ -7,10 +7,10 @@ const CardWrapper = styled.div`
   flex-direction: column;
   width: 200px;
   height: 350px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-right: 10px;
-  margin-left: 10px;
+  // justify-content: flex-start;
+  // align-items: flex-start;
+  // margin-right: 10px;
+  // margin-left: 10px;
 `;
 
 const RecipeImage = styled.img`

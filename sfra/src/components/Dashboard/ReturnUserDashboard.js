@@ -37,7 +37,7 @@ const SearchHeading = styled.h3`
 
 const SearchInput = styled.input`
   width: 510px;
-  height: 40px;
+  height: 30px;
   border: 1px solid #797979;
   border-radius: 30px;
   // margin-bottom: 120px;
@@ -48,6 +48,10 @@ const CardContainer = styled.div`
   width: 80vw;
   margin: 0 auto;
   display: flex;
+  margin-top: 100px;
+  justify-content: space-evenly;
+
+  // background-color: pink;
 `;
 
 export default function ReturnUserDashboard() {
@@ -101,12 +105,14 @@ export default function ReturnUserDashboard() {
       <CardContainer>
         {userRecipes.map((crrObj) => {
           return (
-            <RecipeCards
-              category={crrObj.category}
-              title={crrObj.title}
-              picture_url={crrObj.picture_url}
-              prepTime={crrObj.prepTime}
-            />
+            <Link to="/user-recipe/:id">
+              <RecipeCards
+                category={crrObj.category}
+                title={crrObj.title}
+                picture_url={crrObj.picture_url}
+                prepTime={crrObj.prepTime}
+              />
+            </Link>
           );
         })}
       </CardContainer>

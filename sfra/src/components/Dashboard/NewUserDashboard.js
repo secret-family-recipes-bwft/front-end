@@ -35,7 +35,7 @@ const SearchHeading = styled.h3`
 
 const SearchInput = styled.input`
   width: 510px;
-  height: 40px;
+  height: 30px;
   border: 1px solid #797979;
   border-radius: 30px;
   // margin-bottom: 120px;
