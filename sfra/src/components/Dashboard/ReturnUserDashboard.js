@@ -48,6 +48,7 @@ const CardContainer = styled.div`
   width: 80vw;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 100px;
   justify-content: space-evenly;
 
@@ -56,7 +57,7 @@ const CardContainer = styled.div`
 
 export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" }); // Stretch
-  const [userRecipes, setUserRecipes] = useState(DummyData);
+  const [userRecipes, setUserRecipes] = useState([]);
 
   useEffect(() => {
     axios
@@ -66,6 +67,8 @@ export default function ReturnUserDashboard() {
       )
       .then((res) => {
         console.log("Hello!!", res.data);
+
+        setUserRecipes(res.data);
       })
       .catch((err) => {
         console.log("Failed!!", err);

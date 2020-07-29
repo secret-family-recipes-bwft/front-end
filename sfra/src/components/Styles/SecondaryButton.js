@@ -15,6 +15,7 @@ const SButton = styled.button`
   flex-grow: 1;
   margin-top: 40px;
   margin-right: 80px;
+  margin-bottom: 0px;
 `;
 
 export default function SecondaryButton({ action }) {

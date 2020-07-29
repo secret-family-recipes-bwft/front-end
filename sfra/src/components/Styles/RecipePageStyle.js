@@ -20,12 +20,21 @@ const HeroContainer = styled.div`
   background-color: #f46060;
 `;
 
+const RecipeImage = styled.img`
+  width: 100vw;
+  height: 100vh;
+`;
+
 const Header = styled.div`
   display: flex;
   width: 100%
   height: 140px;
   // justify-content: space-between;
-    background-color: purple;
+    // background-color: purple;
+  position: absolute;
+  top: 0px;
+  // left: 16px;
+
 `;
 
 const Logo = styled.h2`
@@ -33,18 +42,18 @@ const Logo = styled.h2`
   font-size: 18px;
   margin-top: 40px;
   text-align: left;
-  // margin-left: 80px;
-  color: black;
+  margin-left: 80px;
+  color: white;
   flex-grow: 12;
-  background-color: green;
+  // background-color: green;
 `;
 
 const ButtonDiv = styled.div`
   display: flex;
   flex-direction: column;
   // width: 200px;
-  background-color: green;
-  flex-grow: 1;
+  // background-color: green;
+  // flex-grow: 1;
 `;
 
 const ContentWrapper = styled.div`
@@ -78,6 +87,7 @@ export default function RecipePageStyle() {
   return (
     <PageContainer>
       <HeroContainer>
+        <RecipeImage src="https://images.unsplash.com/photo-1571167366136-b57e07761625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
         <Header>
           <Logo>Family Recipe App</Logo>
           <ButtonDiv>
@@ -85,8 +95,7 @@ export default function RecipePageStyle() {
             <SecondaryButton action="Edit" />
           </ButtonDiv>
         </Header>
-        {/* <RecipeImage />
-        <RecipeTitle></RecipeTitle>
+        {/* <RecipeTitle></RecipeTitle>
         <OriginatorIntro></OriginatorIntro> */}
       </HeroContainer>
 
