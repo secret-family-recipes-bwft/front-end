@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import country from "./country.svg";
+import overview from "./overview.svg";
+import arrow from "./arrow.svg";
 // import DummyData from "../../DummyData";
 // import SecondaryButton from "./SecondaryButton";
 
@@ -83,7 +85,7 @@ const ButtonDiv = styled.div`
 `;
 
 const DetailsDiv = styled.div`
-  width: 600px;
+  // width: 800px;
   height: 200px;
   // background-color: green;
   // flex-grow: 1;
@@ -98,9 +100,10 @@ const DetailsDiv = styled.div`
 
 const RecipeTitle = styled.h2`
   font-family: "airbnb_cereal_appbold";
-  font-size: 52px;
+  font-size: 64px;
   color: white;
   align-content: left;
+  margin-bottom: 0px;
 `;
 
 const OriginatorIntro = styled.h2`
@@ -126,21 +129,23 @@ const HigherOrderContent = styled.div`
   flex-direction: column;
   // background-color: #ffc702;
   margin-top: 100px;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 80px;
 `;
-// RecipeFacts
 
 const RecipeFacts = styled.div`
   width: 50vw;
   height: 2900px;
   display: flex;
+  flex-direction: column;
   // background-color: #4a87e8;
   margin-top: 100px;
+  align-items: center;
 `;
 
 const OriginatorDiv = styled.div`
-  width: 100%;
-  height: 400px;
+  width: 400px;
+  height: 200px;
   display: flex;
   // background-color: green;
   // margin-top: 100px;
@@ -149,8 +154,8 @@ const OriginatorDiv = styled.div`
 `;
 
 const OriginatorIMG = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 185px;
+  height: 185px;
   display: flex;
   background-color: yellow;
   // margin-top: 100px;
@@ -167,7 +172,7 @@ const OriginatorDetailDiv = styled.div`
 `;
 
 const OriginatorTitle = styled.h3`
-  font-size: 64px;
+  font-size: 46px;
   font-family: "La Belle Aurore", cursive;
   font-weight: normal;
   margin-bottom: 0px;
@@ -177,13 +182,13 @@ const OriginatorTitle = styled.h3`
 const OriginatorName = styled.h3`
   margin-top: 0px;
   margin-bottom: 80px;
-  font-size: 24px;
+  font-size: 20px;
   text-align: left;
 `;
 
 const CountryDiv = styled.div`
-  width: 500px;
-  height: 200px;
+  width: 300px;
+  height: 100px;
   background: #f7f7f7;
   border-radius: 4px;
   display: flex;
@@ -192,15 +197,10 @@ const CountryDiv = styled.div`
 `;
 
 const SvgIMG = styled.img`
-  width: 100px;
-  height: 100px;
-  margin-left: 70px;
+  width: 50px;
+  height: 50px;
+  margin-left: 40px;
 `;
-
-// <CountryDetailsDiv>
-//   <Question>Country of Origin</Question>
-//   <Answer>Italy</Answer>
-// </CountryDetailsDiv>;
 
 const CountryDetailsDiv = styled.div`
   width: 70%;
@@ -212,22 +212,198 @@ const CountryDetailsDiv = styled.div`
 `;
 
 const Question = styled.h3`
-  font-size: 24px;
+  font-size: 16px;
   text-align: left;
   margin-left: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #484848;
   font-family: "airbnb_cereal_appmedium";
   // font-weight: normal;
 `;
 
 const Answer = styled.h3`
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
   margin-left: 30px;
-  margin-top: 10px;
+  margin-top: 2px;
   color: #484848;
   font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+`;
+
+const TextDiv = styled.div`
+  margin-top: 64px;
+  width: 400px;
+`;
+
+const STitle = styled.h1`
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 24px;
+  font-weight: normal;
+  text-align: left;
+`;
+
+const SBody = styled.p`
+  // font-family: "airbnb_cereal_appmedium";
+  font-size: 18px;
+  font-weight: normal;
+  text-align: left;
+  line-height: 30px;
+`;
+
+const TTitle = styled.h1`
+  margin-top: 80px;
+  font-family: "airbnb_cereal_appmedium";
+  font-size: 24px;
+  font-weight: normal;
+  text-align: left;
+`;
+
+const TBody = styled.p`
+  // font-family: "airbnb_cereal_appmedium";
+  font-size: 18px;
+  font-weight: normal;
+  text-align: left;
+  line-height: 30px;
+`;
+
+const RecipeOverViewDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: 430px;
+  border-radius: 4px;
+  border: 1px solid #bdbdbd;
+  justify-content: center;
+  align-items: center;
+`;
+
+const InnerDiv = styled.div`
+  width: 280px;
+  height: 330px;
+  // background: pink;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+`;
+
+const RecipeOverview = styled.h1`
+  font-size: 24px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+`;
+
+const OverviewIMG = styled.img`
+  width: 30px;
+  height: 30px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+`;
+
+const BasicDiv = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const BasicTitle = styled.h3`
+  font-size: 20px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+`;
+
+const BasicDetail = styled.p`
+  font-size: 20px;
+  font-family: "airbnb_cereal_appbook";
+`;
+
+const HowTo = styled.div`
+  display: flex;
+  flex-direction: column;
+  // margin-top: 100px;
+  // background: pink;
+`;
+
+const IngredientsDiv = styled.div`
+  display: flex;
+  // background: pink;
+  width: 380px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+  margin-top: 100px;
+`;
+
+const Ingredient = styled.h1`
+  font-size: 24px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+`;
+
+const ArrowIMG = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+
+const Divider = styled.div`
+  width: 380px;
+  border: 1px solid #000000;
+  margin-top: 0px;
+`;
+
+const IngredientItem = styled.p`
+  font-size: 18px;
+  font-family: "airbnb_cereal_appbook";
+  font-weight: normal;
+  color: black;
+  margin-top: 20px;
+`;
+
+const DividerItem = styled.div`
+  width: 380px;
+  height: 0px;
+  border: 0.1px solid #bdbdbd;
+  margin-top: 0px;
+`;
+// IngredientsItemDiv
+const IngredientsItemDiv = styled.div`
+  display: flex;
+  // background: pink;
+  width: 380px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  margin-top: 2px;
+`;
+
+const Step = styled.h3`
+  margin-top: 50px;
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbold";
+  font-weight: normal;
+`;
+
+const StepItemDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0px;
+`;
+
+const StepItem = styled.p`
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 380px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 25px;
+  font-family: "airbnb_cereal_appbook";
   font-weight: normal;
 `;
 
@@ -237,7 +413,7 @@ export default function RecipePageStyle() {
   return (
     <PageContainer>
       <HeroContainer>
-        <RecipeImage src="https://images.unsplash.com/photo-1586819286107-b4fb6cc7049f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1570&q=80"></RecipeImage>{" "}
+        <RecipeImage src="https://images.unsplash.com/photo-1586819286107-b4fb6cc7049f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1570&q=80" />
         <OverLay />
         <Header>
           <Logo>Family Recipe App</Logo>
@@ -268,8 +444,114 @@ export default function RecipePageStyle() {
               <Answer>Italy</Answer>
             </CountryDetailsDiv>
           </CountryDiv>
+          <TextDiv>
+            <STitle>Story</STitle>
+            <SBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </SBody>
+            <TTitle>The Family Tradition</TTitle>
+            <TBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </TBody>
+          </TextDiv>
         </HigherOrderContent>
-        <RecipeFacts></RecipeFacts>
+        <RecipeFacts>
+          <RecipeOverViewDiv>
+            <InnerDiv>
+              <OverviewIMG src={overview} />
+              <RecipeOverview>Recipe Overview</RecipeOverview>
+              <BasicDiv>
+                <BasicTitle>Prep Time</BasicTitle>{" "}
+                <BasicDetail>90 min</BasicDetail>{" "}
+              </BasicDiv>
+              <BasicDiv>
+                <BasicTitle>Serving Size</BasicTitle>{" "}
+                <BasicDetail>3-5 people</BasicDetail>{" "}
+              </BasicDiv>
+              <BasicDiv>
+                <BasicTitle>Allergies</BasicTitle>{" "}
+                <BasicDetail>Nuts, Soy</BasicDetail>{" "}
+              </BasicDiv>
+              <BasicDiv>
+                <BasicTitle>Category</BasicTitle>{" "}
+                <BasicDetail>Dinner</BasicDetail>{" "}
+              </BasicDiv>
+            </InnerDiv>
+          </RecipeOverViewDiv>
+
+          <HowTo>
+            <IngredientsDiv>
+              <Ingredient>Ingredients</Ingredient>
+              <ArrowIMG src={arrow} />
+            </IngredientsDiv>
+            <Divider />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+            <IngredientsItemDiv>
+              <IngredientItem>1 pound ground beef</IngredientItem>
+            </IngredientsItemDiv>
+            <DividerItem />
+
+            <IngredientsDiv>
+              <Ingredient>Directions</Ingredient>
+              <ArrowIMG src={arrow} />
+            </IngredientsDiv>
+            <Divider />
+
+            <StepItemDiv>
+              <Step>STEP 1</Step>
+              <StepItem>
+                Combine ground beef, onion, garlic, and green pepper in a large
+                saucepan. Cook and stir until meat is brown and vegetables are
+                tender. Drain grease.
+              </StepItem>
+            </StepItemDiv>
+            <DividerItem />
+
+            <StepItemDiv>
+              <Step>STEP 2</Step>
+              <StepItem>
+                Stir diced tomatoes, tomato sauce, and tomato paste into the
+                pan. Season with oregano, basil, salt, and pepper. Simmer
+                spaghetti sauce for 1 hour, stirring occasionally.
+              </StepItem>
+            </StepItemDiv>
+            <DividerItem />
+          </HowTo>
+        </RecipeFacts>
       </ContentWrapper>
     </PageContainer>
   );
