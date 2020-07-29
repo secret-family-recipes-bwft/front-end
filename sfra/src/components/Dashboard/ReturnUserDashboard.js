@@ -42,6 +42,13 @@ const SearchInput = styled.input`
   border-radius: 30px;
   // margin-bottom: 120px;
 `;
+// CardContainer
+
+const CardContainer = styled.div`
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+`;
 
 export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" }); // Stretch
@@ -91,7 +98,7 @@ export default function ReturnUserDashboard() {
         </form>
       </SearchDiv>
 
-      <div>
+      <CardContainer>
         {userRecipes.map((crrObj) => {
           return (
             <RecipeCards
@@ -102,7 +109,7 @@ export default function ReturnUserDashboard() {
             />
           );
         })}
-      </div>
+      </CardContainer>
     </div>
   );
 }

@@ -15,7 +15,7 @@ const DummyData = [
     story:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 
-    prepTime: "90 minutes",
+    prepTime: "90 min",
     servingSize: "3-5 people",
     none: false,
     shellFish: false,
@@ -64,7 +64,7 @@ const DummyData = [
     story:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 
-    prepTime: "120 minutes",
+    prepTime: "120 min",
     servingSize: "5-7 people",
     none: false,
     shellFish: true,
