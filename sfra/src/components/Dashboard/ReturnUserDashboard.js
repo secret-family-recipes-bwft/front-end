@@ -45,7 +45,7 @@ const SearchInput = styled.input`
 // CardContainer
 
 const CardContainer = styled.div`
-  width: 80vw;
+  width: 70vw;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
