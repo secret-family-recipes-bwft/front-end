@@ -127,6 +127,41 @@ const StepDivider = styled.div`
   border: 1px solid #cbd2d9;
 `;
 
+// Next Step Signifier Styling
+const NextStepStepNum = styled.h4`
+  font-size: 10px;
+  font-family: "airbnb_cereal_appmedium";
+  // font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #4a87e8;
+`;
+
+const NextStepTitle = styled.h4`
+  font-size: 16px;
+  font-family: "airbnb_cereal_appmedium";
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  color: #4a87e8;
+`;
+
+const NextStepOverview = styled.h4`
+  font-size: 12px;
+  font-family: "airbnb_cereal_appbook";
+  font-weight: normal;
+  margin-bottom: 15px;
+  margin-top: 0px;
+  color: #4a87e8;
+`;
+
+const NextStepStepDivider = styled.div`
+  width: 100%;
+  border: 1px solid #4a87e8;
+`;
+// Next Step Signifier Styling
+
 const FormNavigation = styled.div`
   width: 60%;
   height: 10vh;
@@ -194,10 +229,12 @@ export default function StartScreen() {
               <Heading>Create a recipe in 3 easy steps</Heading>
               {/*  */}
               <StepBox>
-                <StepNum>STEP 1</StepNum>
-                <Title>What’s the story?</Title>
-                <Overview>Name, Category, Originator, Recipe Story</Overview>
-                <StepDivider />
+                <NextStepStepNum>STEP 1</NextStepStepNum>
+                <NextStepTitle>What’s the story?</NextStepTitle>
+                <NextStepOverview>
+                  Name, Category, Originator, Recipe Story
+                </NextStepOverview>
+                <NextStepStepDivider />
               </StepBox>
               {/*  */}
               <StepBox>
@@ -218,51 +255,17 @@ export default function StartScreen() {
           </StatusLayoutDiv>
           <FormNavigation>
             <ButtonDiv>
-              <BackButton>Back</BackButton>
-              <NextButton>Next</NextButton>
+              <Link to="/return-user-dash">
+                <BackButton>Back</BackButton>
+              </Link>
+              <Link to="/the-story-basics">
+                <NextButton>Next</NextButton>
+              </Link>
             </ButtonDiv>
           </FormNavigation>
         </FieldsContainer>
         {/* <ContentConatiner></ContentConatiner> */}
       </FormContainer>
-
-      {/* <h1>Create a recipe in 3 easy steps</h1> */}
-      {/* <div>
-        <StepDiv
-          step="STEP 1"
-          title="What's the story"
-          overview="Name, Category, Originator, Recipe Story"
-        />
-        <StepDiv
-          step="STEP 2"
-          title="What can you expect from this recipe? "
-          overview="Prep Time, Allergies, Serving Size"
-        />
-        <StepDiv
-          step="STEP 3"
-          title="How do you make this recipe?"
-          overview="Ingredients, Directions"
-        />
-      </div> */}
-      {/* <br />
-      <br /> */}
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100vw",
-          margin: "0 auto",
-        }}
-      >
-        <Link>
-          <button>Back</button>
-        </Link>
-
-        <br />
-        <Link to="/the-story-basics">
-          <button>Next</button>
-        </Link>
-      </div> */}
     </PageContainer>
   );
 }
