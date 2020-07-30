@@ -211,6 +211,117 @@ export default function Ingredients() {
           <StatusLayoutDiv>
             <StatusContainer>
               <Heading>What are the ingredients? </Heading>
+              <form onSubmit={handleSubmit}>
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient1"
+                    placeholder="Ingredient 1"
+                    value={formState.ingredient1}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient2"
+                    placeholder="Ingredient 2"
+                    value={formState.ingredient2}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient3"
+                    placeholder="Ingredient 3"
+                    value={formState.ingredient3}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient4"
+                    placeholder="Ingredient 4"
+                    value={formState.ingredient4}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient5"
+                    placeholder="Ingredient 5"
+                    value={formState.ingredient5}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient6"
+                    placeholder="Ingredient 6"
+                    value={formState.ingredient6}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient7"
+                    placeholder="Ingredient 7"
+                    value={formState.ingredient7}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient8"
+                    placeholder="Ingredient 8"
+                    value={formState.ingredient8}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient9"
+                    placeholder="Ingredient 9"
+                    value={formState.ingredient9}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                {/*  */}
+                <InputDiv>
+                  <TextInput
+                    type="text"
+                    name="ingredient10"
+                    placeholder="Ingredient 10"
+                    value={formState.ingredient10}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                <div style={{ height: "200px" }} />
+              </form>
             </StatusContainer>
           </StatusLayoutDiv>
           <FormNavigation>
