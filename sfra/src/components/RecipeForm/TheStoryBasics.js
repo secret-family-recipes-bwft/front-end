@@ -85,82 +85,6 @@ const Heading = styled.h1`
   margin-bottom: 30px;
 `;
 
-const StepBox = styled.div`
-  width: 100%;
-  height: 72px;
-  // background: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 24px;
-`;
-
-const StepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-`;
-
-const Title = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-`;
-
-const Overview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-`;
-
-const StepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #cbd2d9;
-`;
-
-// Next Step Signifier Styling
-const NextStepStepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepTitle = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  color: #4a87e8;
-`;
-
-const NextStepOverview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepStepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #4a87e8;
-`;
-// Next Step Signifier Styling
-
 const FormNavigation = styled.div`
   width: 60%;
   height: 10vh;
@@ -244,28 +168,9 @@ export default function TheStoryBasics() {
             <StatusContainer>
               <Heading>The basics</Heading>
 
-              {/* <StepBox>
-                <NextStepStepNum>STEP 1</NextStepStepNum>
-                <NextStepTitle>What’s the story?</NextStepTitle>
-                <NextStepOverview>
-                  Name, Category, Originator, Recipe Story
-                </NextStepOverview>
-                <NextStepStepDivider />
-              </StepBox>
-
-              <StepBox>
-                <StepNum>STEP 2</StepNum>
-                <Title>What can you expect from this recipe?</Title>
-                <Overview>Prep Time, Allergies, Serving Size</Overview>
-                <StepDivider />
-              </StepBox>
-
-              <StepBox>
-                <StepNum>STEP 3</StepNum>
-                <Title>How do you make this recipe?</Title>
-                <Overview>Ingredients, Directions</Overview>
-                <StepDivider />
-              </StepBox> */}
+              {/* <form onSubmit={handleSubmit}>
+                <InputDiv></InputDiv>
+              </form> */}
             </StatusContainer>
           </StatusLayoutDiv>
           <FormNavigation>
