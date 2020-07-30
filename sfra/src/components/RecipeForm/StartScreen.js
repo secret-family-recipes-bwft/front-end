@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import StepDiv from "./StepDiv";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import PrimaryButton from "../Styles/PrimaryButton";
-import SecondaryButton from "../Styles/SecondaryButton";
+
 const PageContainer = styled.div`
   width: 100vw;
 `;
@@ -217,7 +216,6 @@ export default function StartScreen() {
       <Header>
         <Logo>Family Recipe App</Logo>
         <ProgressHeader>Step 1: What’s the story? </ProgressHeader>
-        {/*60% */}
       </Header>
       <ProgressBarDiv>
         <ProgressSignifier />
