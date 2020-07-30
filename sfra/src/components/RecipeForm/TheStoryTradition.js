@@ -70,6 +70,44 @@ const StatusLayoutDiv = styled.div`
   align-items: center;
 `;
 
+const InputDiv = styled.div`
+  width: 100%;
+  // height: 64px;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 30px;
+`;
+
+const FormLabel = styled.label`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  text-align: left;
+  width: 90%;
+`;
+
+const TextInput = styled.input`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin-top: 20px;
+`;
+
+const TextAreaInput = styled.textarea`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  font-weight: normal;
+  width: 90%;
+  height: 200px;
+  margin-top: 20px;
+  margin-bottom: 200px;
+  border: 1px solid #bdbdbd;
+`;
+
 const StatusContainer = styled.div`
   height: 350px;
   width: 360px;
@@ -85,81 +123,9 @@ const Heading = styled.h1`
   margin-bottom: 30px;
 `;
 
-const StepBox = styled.div`
-  width: 100%;
-  height: 72px;
-  // background: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 24px;
-`;
+//
 
-const StepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-`;
-
-const Title = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-`;
-
-const Overview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-`;
-
-const StepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #cbd2d9;
-`;
-
-// Next Step Signifier Styling
-const NextStepStepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepTitle = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  color: #4a87e8;
-`;
-
-const NextStepOverview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepStepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #4a87e8;
-`;
-// Next Step Signifier Styling
+//
 
 const FormNavigation = styled.div`
   width: 60%;
@@ -243,7 +209,68 @@ export default function TheStoryTradition() {
           <StatusLayoutDiv>
             <StatusContainer>
               <Heading>Share the story </Heading>
-
+              <form onSubmit={handleSubmit}>
+                <InputDiv>
+                  <FormLabel htmlFor="recipeOriginator">
+                    Who originated this recipe?
+                  </FormLabel>
+                  <TextInput
+                    type="text"
+                    name="recipeOriginator"
+                    placeholder="Nonna Isabella"
+                    value={formState.recipeOriginator}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="originatorImageURL">
+                    Upload an image or originator
+                  </FormLabel>
+                  <TextInput
+                    type="text"
+                    name="originatorImageURL"
+                    placeholder="Image of Nonna Isabella"
+                    value={formState.originatorImageURL}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="tradtion">
+                    When does your family usually make this recipe?
+                  </FormLabel>
+                  <TextInput
+                    name="tradtion"
+                    placeholder="The first night of Hanukkah"
+                    value={formState.tradtion}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="story">
+                    Is there a story around this recipe or memory you’d like to
+                    share of when your family would eat this recipe?
+                  </FormLabel>
+                  <TextAreaInput
+                    name="story"
+                    placeholder="My favorite memory was when the whole family would help prepare this meal, while we would listen to  Billy Joel full blast ..."
+                    value={formState.story}
+                    onChange={handleChange}
+                    // cols="10"
+                    // rows="10"
+                  />
+                  {/* <textarea
+                    name="tradition"
+                    value={formState.tradition}
+                    onChange={handleChange}
+                    cols="300"
+                    rows="1000"
+                    placeholder="The first night of Hanukkah..."
+                  /> */}
+                </InputDiv>
+              </form>
               {/* <StepBox>
                 <NextStepStepNum>STEP 1</NextStepStepNum>
                 <NextStepTitle>What’s the story?</NextStepTitle>
