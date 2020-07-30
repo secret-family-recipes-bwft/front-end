@@ -32,6 +32,7 @@ const ProgressHeader = styled.p`
   margin-left: 100px;
   // background: green;
 `;
+
 const ProgressBarDiv = styled.div`
   width: 100vw;
   // border: 4px solid #eeefed;
@@ -122,10 +123,6 @@ const Heading = styled.h1`
   text-align: left;
   margin-bottom: 30px;
 `;
-
-//
-
-//
 
 const FormNavigation = styled.div`
   width: 60%;

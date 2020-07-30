@@ -70,6 +70,71 @@ const StatusLayoutDiv = styled.div`
   align-items: center;
 `;
 
+// Form Styles ------- -------
+const InputDiv = styled.div`
+  width: 100%;
+  height: 64px;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 30px;
+`;
+
+const FormLabel = styled.label`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  text-align: left;
+`;
+
+const SelectInput = styled.select`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  // color: #bdbdbd;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin-top: 20px;
+`;
+
+const OptionStyle = styled.option`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  background-color: white;
+  color: #bdbdbd;
+`;
+
+const CheckBoxLabel = styled.label`
+  font-size: 14px;
+  color: black;
+  font-family: "airbnb_cereal_appbook";
+  display: flex;
+  align-items: flex-end;
+  // background: red;
+  // margin-right: 40px;
+  width: 90px;
+  margin-bottom: 30px;
+`;
+
+const CheckBoxInput = styled.input`
+  width: 12px;
+  height: 12px;
+  border: 1px solid #c4c4c4;
+`;
+
+const CheckDiv = styled.div`
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  // background: pink;
+  margin-top: 30px;
+`;
+
+// Form Styles ------- -------
+
 const StatusContainer = styled.div`
   height: 350px;
   width: 360px;
@@ -84,82 +149,6 @@ const Heading = styled.h1`
   text-align: left;
   margin-bottom: 30px;
 `;
-
-const StepBox = styled.div`
-  width: 100%;
-  height: 72px;
-  // background: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 24px;
-`;
-
-const StepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-`;
-
-const Title = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-`;
-
-const Overview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-`;
-
-const StepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #cbd2d9;
-`;
-
-// Next Step Signifier Styling
-const NextStepStepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepTitle = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  color: #4a87e8;
-`;
-
-const NextStepOverview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepStepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #4a87e8;
-`;
-// Next Step Signifier Styling
 
 const FormNavigation = styled.div`
   width: 60%;
@@ -249,29 +238,112 @@ export default function Expectations() {
           <StatusLayoutDiv>
             <StatusContainer>
               <Heading>Set the expectations</Heading>
-
-              {/* <StepBox>
-                <NextStepStepNum>STEP 1</NextStepStepNum>
-                <NextStepTitle>What’s the story?</NextStepTitle>
-                <NextStepOverview>
-                  Name, Category, Originator, Recipe Story
-                </NextStepOverview>
-                <NextStepStepDivider />
-              </StepBox>
-
-              <StepBox>
-                <StepNum>STEP 2</StepNum>
-                <Title>What can you expect from this recipe?</Title>
-                <Overview>Prep Time, Allergies, Serving Size</Overview>
-                <StepDivider />
-              </StepBox>
-
-              <StepBox>
-                <StepNum>STEP 3</StepNum>
-                <Title>How do you make this recipe?</Title>
-                <Overview>Ingredients, Directions</Overview>
-                <StepDivider />
-              </StepBox> */}
+              <form onSubmit={handleSubmit}>
+                <InputDiv>
+                  <FormLabel htmlFor="prepTime">
+                    How long does this recipe take to make?
+                  </FormLabel>
+                  <SelectInput
+                    name="prepTime"
+                    value={formState.prepTime}
+                    onChange={handleChange}
+                  >
+                    <OptionStyle value="30 min">30 min</OptionStyle>
+                    <OptionStyle value="45 min">45 min</OptionStyle>
+                    <OptionStyle value="60 min">60 min</OptionStyle>
+                    <OptionStyle value="90 min">90 min</OptionStyle>
+                    <OptionStyle value="120 min">120 min</OptionStyle>
+                  </SelectInput>
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="servingSize">
+                    How many people will this recipe feed?
+                  </FormLabel>
+                  <SelectInput
+                    name="servingSize"
+                    value={formState.servingSize}
+                    onChange={handleChange}
+                  >
+                    <OptionStyle value="1-3 people">1-3 people</OptionStyle>
+                    <OptionStyle value="3-5 people">3-5 people</OptionStyle>
+                    <OptionStyle value="5-7 people">5-7 people</OptionStyle>
+                  </SelectInput>
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="allergies">
+                    Give people a heads up on common allergies
+                  </FormLabel>
+                  <CheckDiv>
+                    <CheckBoxLabel>
+                      <CheckBoxInput
+                        type="checkbox"
+                        name="none"
+                        id="none"
+                        value={formState.none}
+                        onChange={handleChange}
+                      />
+                      None
+                    </CheckBoxLabel>
+                    {/*  */}
+                    <CheckBoxLabel>
+                      <CheckBoxInput
+                        type="checkbox"
+                        name="shellFish"
+                        id="shellFish"
+                        value={formState.shellFish}
+                        onChange={handleChange}
+                      />
+                      Shell Fish
+                    </CheckBoxLabel>
+                    {/*  */}
+                    <CheckBoxLabel>
+                      <CheckBoxInput
+                        type="checkbox"
+                        name="nuts"
+                        id="nuts"
+                        value={formState.nuts}
+                        onChange={handleChange}
+                      />
+                      Nuts
+                    </CheckBoxLabel>
+                    {/*  */}
+                    <CheckBoxLabel>
+                      <CheckBoxInput
+                        type="checkbox"
+                        name="soy"
+                        id="soy"
+                        value={formState.soy}
+                        onChange={handleChange}
+                      />
+                      Soy
+                    </CheckBoxLabel>
+                    {/*  */}
+                    <CheckBoxLabel>
+                      <CheckBoxInput
+                        type="checkbox"
+                        name="milk"
+                        id="milk"
+                        value={formState.milk}
+                        onChange={handleChange}
+                      />
+                      Milk
+                    </CheckBoxLabel>
+                    {/*  */}
+                    <CheckBoxLabel>
+                      <CheckBoxInput
+                        type="checkbox"
+                        name="wheat"
+                        id="wheat"
+                        value={formState.wheat}
+                        onChange={handleChange}
+                      />
+                      Wheat
+                    </CheckBoxLabel>
+                  </CheckDiv>
+                </InputDiv>
+              </form>
             </StatusContainer>
           </StatusLayoutDiv>
           <FormNavigation>
