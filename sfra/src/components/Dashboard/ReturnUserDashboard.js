@@ -57,7 +57,7 @@ const CardContainer = styled.div`
 
 export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" }); // Stretch
-  const [userRecipes, setUserRecipes] = useState([]);
+  const [userRecipes, setUserRecipes] = useState(DummyData);
 
   useEffect(() => {
     axios
@@ -68,7 +68,7 @@ export default function ReturnUserDashboard() {
       .then((res) => {
         console.log("Hello!!", res.data);
 
-        setUserRecipes(res.data);
+        // setUserRecipes(res.data);
       })
       .catch((err) => {
         console.log("Failed!!", err);
