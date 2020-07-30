@@ -70,6 +70,49 @@ const StatusLayoutDiv = styled.div`
   align-items: center;
 `;
 
+const InputDiv = styled.div`
+  width: 100%;
+  height: 64px;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 30px;
+`;
+
+const FormLabel = styled.label`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  text-align: left;
+`;
+
+const TextInput = styled.input`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin-top: 20px;
+`;
+
+const SelectInput = styled.select`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  // color: #bdbdbd;
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin-top: 20px;
+`;
+
+const OptionStyle = styled.option`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  background-color: white;
+  color: #bdbdbd;
+`;
+
 const StatusContainer = styled.div`
   height: 350px;
   width: 360px;
@@ -168,11 +211,65 @@ export default function TheStoryBasics() {
             <StatusContainer>
               <Heading>The basics</Heading>
 
-              {/* <form onSubmit={handleSubmit}>
-                <InputDiv></InputDiv>
-              </form> */}
+              <form onSubmit={handleSubmit}>
+                <InputDiv>
+                  <FormLabel htmlFor="tile">
+                    What’s the name of your recipe?
+                  </FormLabel>
+                  <TextInput
+                    type="text"
+                    name="title"
+                    placeholder="Recipe name"
+                    value={formState.title}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="picture_url">
+                    Upload an image of recipe
+                  </FormLabel>
+                  <TextInput
+                    type="text"
+                    name="picture_url"
+                    placeholder="Image of recipe"
+                    value={formState.picture_url}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+                <InputDiv>
+                  <FormLabel htmlFor="category">
+                    What type of recipe is this?
+                  </FormLabel>
+                  <SelectInput
+                    name="category"
+                    value={formState.category}
+                    onChange={handleChange}
+                  >
+                    <OptionStyle value="Breakfast">Breakfast</OptionStyle>
+                    <OptionStyle value="Lunch">Lunch</OptionStyle>
+                    <OptionStyle value="Dinner">Dinner</OptionStyle>
+                    <OptionStyle value="Dessert">Dessert</OptionStyle>
+                    <OptionStyle value="Snack">Snack</OptionStyle>
+                    <OptionStyle value="Drink">Drink</OptionStyle>
+                  </SelectInput>
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <FormLabel htmlFor="originCountry">
+                    What counrty is does this originate from?
+                  </FormLabel>
+                  <TextInput
+                    name="originCountry"
+                    placeholder="Italy"
+                    value={formState.originCountry}
+                    onChange={handleChange}
+                  />
+                </InputDiv>
+              </form>
             </StatusContainer>
           </StatusLayoutDiv>
+
           <FormNavigation>
             <ButtonDiv>
               <Link to="/start-screen">
