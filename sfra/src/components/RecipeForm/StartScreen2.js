@@ -278,7 +278,7 @@ export default function StartScreen() {
           </StatusLayoutDiv>
           <FormNavigation>
             <ButtonDiv>
-              <Link to="/return-user-dash">
+              <Link to="/the-story-tradition">
                 <BackButton>Back</BackButton>
               </Link>
               <Link to="/the-expectations">

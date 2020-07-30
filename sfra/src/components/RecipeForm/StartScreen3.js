@@ -276,10 +276,10 @@ export default function StartScreen3() {
           </StatusLayoutDiv>
           <FormNavigation>
             <ButtonDiv>
-              <Link to="/return-user-dash">
+              <Link to="/the-expectations">
                 <BackButton>Back</BackButton>
               </Link>
-              <Link to="/the-expectations">
+              <Link to="/the-ingredients">
                 <NextButton>Next</NextButton>
               </Link>
             </ButtonDiv>
