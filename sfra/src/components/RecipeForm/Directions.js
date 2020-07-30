@@ -70,6 +70,54 @@ const StatusLayoutDiv = styled.div`
   align-items: center;
 `;
 
+// Form Styling ---- ----- -----
+const InputDiv = styled.div`
+  width: 100%;
+  // height: 64px;
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 30px;
+`;
+
+const FormLabel = styled.label`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  text-align: left;
+  width: 90%;
+`;
+const TextInput = styled.input`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  width: 90%;
+  margin-top: 20px;
+`;
+const TextAreaInput = styled.textarea`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  font-weight: normal;
+  width: 90%;
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #bdbdbd;
+`;
+
+const TextAreaInputLast = styled.textarea`
+  font-size: 14px;
+  font-family: "airbnb_cereal_appbook";
+  font-weight: normal;
+  width: 90%;
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 200px;
+  border: 1px solid #bdbdbd;
+`;
+// Form Styling ---- ----- -----
 const StatusContainer = styled.div`
   height: 350px;
   width: 360px;
@@ -84,82 +132,6 @@ const Heading = styled.h1`
   text-align: left;
   margin-bottom: 30px;
 `;
-
-const StepBox = styled.div`
-  width: 100%;
-  height: 72px;
-  // background: red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 24px;
-`;
-
-const StepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-`;
-
-const Title = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-`;
-
-const Overview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-`;
-
-const StepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #cbd2d9;
-`;
-
-// Next Step Signifier Styling
-const NextStepStepNum = styled.h4`
-  font-size: 10px;
-  font-family: "airbnb_cereal_appmedium";
-  // font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepTitle = styled.h4`
-  font-size: 16px;
-  font-family: "airbnb_cereal_appmedium";
-  font-style: normal;
-  font-weight: normal;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  color: #4a87e8;
-`;
-
-const NextStepOverview = styled.h4`
-  font-size: 12px;
-  font-family: "airbnb_cereal_appbook";
-  font-weight: normal;
-  margin-bottom: 15px;
-  margin-top: 0px;
-  color: #4a87e8;
-`;
-
-const NextStepStepDivider = styled.div`
-  width: 100%;
-  border: 1px solid #4a87e8;
-`;
-// Next Step Signifier Styling
 
 const FormNavigation = styled.div`
   width: 60%;
@@ -249,29 +221,64 @@ export default function Directions() {
           <StatusLayoutDiv>
             <StatusContainer>
               <Heading>What are the directions?</Heading>
-
-              {/* <StepBox>
-                <NextStepStepNum>STEP 1</NextStepStepNum>
-                <NextStepTitle>What’s the story?</NextStepTitle>
-                <NextStepOverview>
-                  Name, Category, Originator, Recipe Story
-                </NextStepOverview>
-                <NextStepStepDivider />
-              </StepBox>
-
-              <StepBox>
-                <StepNum>STEP 2</StepNum>
-                <Title>What can you expect from this recipe?</Title>
-                <Overview>Prep Time, Allergies, Serving Size</Overview>
-                <StepDivider />
-              </StepBox>
-
-              <StepBox>
-                <StepNum>STEP 3</StepNum>
-                <Title>How do you make this recipe?</Title>
-                <Overview>Ingredients, Directions</Overview>
-                <StepDivider />
-              </StepBox> */}
+              <form onSubmit={handleSubmit}>
+                {/*  */}
+                <InputDiv>
+                  <TextAreaInput
+                    name="step1"
+                    placeholder="Step 1"
+                    value={formState.step1}
+                    onChange={handleChange}
+                    // cols="10"
+                    // rows="10"
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <TextAreaInput
+                    name="step2"
+                    placeholder="Step 2"
+                    value={formState.step2}
+                    onChange={handleChange}
+                    // cols="10"
+                    // rows="10"
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <TextAreaInput
+                    name="step3"
+                    placeholder="Step 3"
+                    value={formState.step3}
+                    onChange={handleChange}
+                    // cols="10"
+                    // rows="10"
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <TextAreaInput
+                    name="step4"
+                    placeholder="Step 4"
+                    value={formState.step4}
+                    onChange={handleChange}
+                    // cols="10"
+                    // rows="10"
+                  />
+                </InputDiv>
+                {/*  */}
+                <InputDiv>
+                  <TextAreaInputLast
+                    name="step5"
+                    placeholder="Step 5"
+                    value={formState.step5}
+                    onChange={handleChange}
+                    // cols="10"
+                    // rows="10"
+                  />
+                </InputDiv>
+                {/*  */}
+              </form>
             </StatusContainer>
           </StatusLayoutDiv>
           <FormNavigation>
