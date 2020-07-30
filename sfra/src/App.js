@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
@@ -15,22 +15,22 @@ import Ingredients from "./components/RecipeForm/Ingredients";
 import Directions from "./components/RecipeForm/Directions";
 import SuccessPage from "./components/RecipeForm/SuccessPage";
 
-import {UserContext} from './contexts/UserContext';
+// import {UserContext} from './contexts/UserContext';
 import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
-  const [user, setUser] = useState({});
+//   const [user, setUser] = useState({});
 
-	const addUser = user => {
-    setUser(user.target.value);
- };
+// 	const addUser = user => {
+//     setUser(user.target.value);
+//  };
 
   return (
     <div className="App">
-      <UserContext.Provider value={user}>
+      
 
       <Route exact path="/">
-        <Login user={user} />
+        <Login />
       </Route>
 
       <PrivateRoute exact path="/return-user-dash">
@@ -38,7 +38,7 @@ function App() {
       </PrivateRoute>
 
       <Route exact path="/SignUp">
-        <SignUp user={user} addUser={addUser} />
+        <SignUp />
       </Route>
 
       <PrivateRoute exact path="/new-user-dash">
@@ -80,7 +80,7 @@ function App() {
       <Route exact path="/recipe-created-success">
         <SuccessPage />
       </Route>
-      </UserContext.Provider>
+     
     </div>
   );
 }

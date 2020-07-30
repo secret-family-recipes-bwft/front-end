@@ -127,9 +127,9 @@ export default function SignUp() {
           <br />
           <br />
           <br />
-          <Link to="/new-user-dash">
+          {/* <Link to="/new-user-dash"> */}
             <PrimaryButton action="Sign Up" />
-          </Link>
+          {/* </Link> */}
         </form>
         <SecondHeading>I have an account</SecondHeading>
         <Link style={{ textDecoration: "none" }} to="/">

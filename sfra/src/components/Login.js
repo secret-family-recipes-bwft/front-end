@@ -67,6 +67,7 @@ export default function Login() {
   const history = useHistory();
 
   const postUser = (input) => {
+    console.log(input)
     axiosWithAuth()
       .post(
         "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login",
@@ -75,7 +76,8 @@ export default function Login() {
       .then((res) => {
         console.log(res);
         window.localStorage.setItem('token', res.data.token)
-        history.push('/return-user-dash')
+        if(window.localStorage.getItem('token'))
+        {history.push('/return-user-dash')}
       })
       .catch((err) => {
         console.log(err);
@@ -90,6 +92,7 @@ export default function Login() {
   }
   function handleSubmit(e) {
     e.preventDefault();
+    console.log('test')
     postUser(formState);
     setFormState(defaultState);
   }
@@ -118,9 +121,9 @@ export default function Login() {
             onChange={handleChange}
           />
           <br />
-          <Link to="/return-user-dash">
+          {/* <Link to="/return-user-dash"> */}
             <PrimaryButton action="Login" />
-          </Link>
+          {/* </Link> */}
         </form>
         <SecondHeading>I'm new here</SecondHeading>
         <Link style={{ textDecoration: "none" }} to="/SignUp">
