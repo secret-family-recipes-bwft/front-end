@@ -1,17 +1,68 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import RecipeCards from "./RecipeCards";
+import SecondaryButton from "../Styles/SecondaryButton";
+import styled from "styled-components";
+import { axiosWithAuth } from "../../utils/AxiosWithAuth";
+
+const Header = styled.div`
+  display: flex;
+  width: 100%;
+  height: 140px;
+  justify-content: space-between;
+`;
+
+const Logo = styled.h2`
+  font-family: "airbnb_cereal_appbold";
+  font-size: 18px;
+  margin-top: 40px;
+  margin-left: 80px;
+  color: black;
+  flex-grow: 6;
+`;
+
+const SearchDiv = styled.div`
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+const SearchHeading = styled.h3`
+  font-family: "airbnb_cereal_appbook";
+  font-size: 24px;
+  margin-bottom: 20px;
+`;
+
+const SearchInput = styled.input`
+  width: 510px;
+  height: 30px;
+  border: 1px solid #797979;
+  border-radius: 30px;
+  // margin-bottom: 120px;
+`;
+// CardContainer
+
+const CardContainer = styled.div`
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  justify-content: space-evenly;
+  // background-color: pink;
+`;
 
 export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" });
-  const [recipes, setRecipes] = useState([]);
+  const [userRecipes, setUserRecipes] = useState([]);
 
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get("https://bw-secret-family-recipes-1.herokuapp.com/api/recipes")
       .then((res) => {
         console.log(res.data);
+        setUserRecipes(res.data)
       })
       .catch((err) => {
         console.log(err);
@@ -27,31 +78,42 @@ export default function ReturnUserDashboard() {
 
   return (
     <div>
-      <h1>Welcome Back!!</h1>
-      <header>
-        <ul>
-          <Link to="/dash">
-            <p>Secret Family Recipe App</p>
-          </Link>
-          <Link to="/start-screen">
-            <button>+Create Recipe</button>
-          </Link>
-        </ul>
-      </header>
+    <Header>
+      <Link style={{ textDecoration: "none" }} to="/dash">
+        <Logo>Family Recipe App</Logo>
+      </Link>
 
-      <div>
-        <h2>Search Recipes</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="search"
-            value={search.search}
-            onChange={handleChange}
-          />
-        </form>
+      <Link to="/start-screen">
+        <SecondaryButton action="+Create Recipe" />
+      </Link>
+    </Header>
 
-        <RecipeCards />
-      </div>
-    </div>
+    <SearchDiv>
+      <SearchHeading>Search Recipes</SearchHeading>
+      <form onSubmit={handleSubmit}>
+        <SearchInput
+          type="text"
+          name="search"
+          value={search.search}
+          onChange={handleChange}
+        />
+      </form>
+    </SearchDiv>
+
+    <CardContainer>
+      {userRecipes.map((crrObj) => {
+        return (
+          <Link style={{ textDecoration: "none" }} to="/user-recipe/:id">
+            <RecipeCards
+              category={crrObj.category}
+              title={crrObj.title}
+              picture_url={crrObj.picture_url}
+              prepTime={crrObj.prepTime}
+            />
+          </Link>
+        );
+      })}
+    </CardContainer>
+  </div>
   );
 }

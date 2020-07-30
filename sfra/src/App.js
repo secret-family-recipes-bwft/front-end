@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
@@ -15,23 +15,35 @@ import Ingredients from "./components/RecipeForm/Ingredients";
 import Directions from "./components/RecipeForm/Directions";
 import SuccessPage from "./components/RecipeForm/SuccessPage";
 
+import {UserContext} from './contexts/UserContext';
+import PrivateRoute from './utils/PrivateRoute';
+
 function App() {
+  const [user, setUser] = useState({});
+
+	const addUser = user => {
+    setUser(user.target.value);
+ };
+
   return (
     <div className="App">
+      <UserContext.Provider value={user}>
+
       <Route exact path="/">
-        <Login />
+        <Login user={user} />
       </Route>
-      <Route exact path="/return-user-dash">
+
+      <PrivateRoute exact path="/return-user-dash">
         <ReturnUserDashboard />
-      </Route>
+      </PrivateRoute>
 
       <Route exact path="/SignUp">
-        <SignUp />
+        <SignUp user={user} addUser={addUser} />
       </Route>
 
-      <Route exact path="/new-user-dash">
+      <PrivateRoute exact path="/new-user-dash">
         <NewUserDashboard />
-      </Route>
+      </PrivateRoute>
 
       <Route exact path="/start-screen">
         <StartScreen />
@@ -68,6 +80,7 @@ function App() {
       <Route exact path="/recipe-created-success">
         <SuccessPage />
       </Route>
+      </UserContext.Provider>
     </div>
   );
 }

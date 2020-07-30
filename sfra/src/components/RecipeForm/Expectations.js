@@ -25,7 +25,6 @@ export default function Expectations() {
     e.preventDefault();
     formState(defaultState);
   }
-
   return (
     <div>
       <h1>Set the expectations</h1>

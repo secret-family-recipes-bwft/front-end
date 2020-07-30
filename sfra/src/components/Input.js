@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
+
+const InputField = styled.input`
+  border: none;
+  border-bottom: 1px solid #2d2e32;
+  width: 256px;
+`;
 
 export default function Input({
   label,
@@ -14,7 +21,7 @@ export default function Input({
       <label htmlFor={label}>
         {label}
         <br />
-        <input
+        <InputField
           type={type}
           name={name}
           value={value}
