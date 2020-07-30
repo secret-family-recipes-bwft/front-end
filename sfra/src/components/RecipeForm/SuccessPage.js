@@ -114,7 +114,9 @@ export default function SuccessPage() {
           <SuccessIMG src={placeholderSuccess} />
           <SuccessHeading>All done!</SuccessHeading>
           <SuccessSubHeading>You created your recipe!</SuccessSubHeading>
-          <SuccessButton>View Recipe</SuccessButton>
+          <Link to="/user-recipe/:id">
+            <SuccessButton>View Recipe</SuccessButton>
+          </Link>
           <MaybeLater>Maybe Later</MaybeLater>
         </SuccessDiv>
       </FormContainer>
