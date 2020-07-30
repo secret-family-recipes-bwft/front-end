@@ -52,13 +52,79 @@ const FormContainer = styled.div`
   display: flex;
 `;
 
-// FieldsContainer
 const FieldsContainer = styled.div`
   width: 60%;
   height: 90vh;
   background-color: white;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+`;
+// StatusLayoutDiv
+const StatusLayoutDiv = styled.div`
+  width: 80%;
+  height: 90vh;
+  // background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const StatusContainer = styled.div`
+  height: 350px;
+  width: 360px;
+  background: white;
+  margin-top: 40px;
+`;
+
+const Heading = styled.h1`
+  font-size: 20px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  text-align: left;
+  margin-bottom: 30px;
+`;
+
+const StepBox = styled.div`
+  width: 100%;
+  height: 72px;
+  // background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 24px;
+`;
+
+const StepNum = styled.h4`
+  font-size: 10px;
+  font-family: "airbnb_cereal_appmedium";
+  // font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 0px;
+`;
+
+const Title = styled.h4`
+  font-size: 16px;
+  font-family: "airbnb_cereal_appmedium";
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 4px;
+  margin-top: 4px;
+`;
+
+const Overview = styled.h4`
+  font-size: 12px;
+  font-family: "airbnb_cereal_appbook";
+  font-weight: normal;
+  margin-bottom: 15px;
+  margin-top: 0px;
+`;
+
+const StepDivider = styled.div`
+  width: 100%;
+  border: 1px solid #cbd2d9;
 `;
 
 const FormNavigation = styled.div`
@@ -66,7 +132,7 @@ const FormNavigation = styled.div`
   height: 10vh;
   position: fixed;
   bottom: 0;
-  // background-color: pink;
+  background-color: white;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -123,6 +189,33 @@ export default function StartScreen() {
       </ProgressBarDiv>
       <FormContainer>
         <FieldsContainer>
+          <StatusLayoutDiv>
+            <StatusContainer>
+              <Heading>Create a recipe in 3 easy steps</Heading>
+              {/*  */}
+              <StepBox>
+                <StepNum>STEP 1</StepNum>
+                <Title>What’s the story?</Title>
+                <Overview>Name, Category, Originator, Recipe Story</Overview>
+                <StepDivider />
+              </StepBox>
+              {/*  */}
+              <StepBox>
+                <StepNum>STEP 2</StepNum>
+                <Title>What can you expect from this recipe?</Title>
+                <Overview>Prep Time, Allergies, Serving Size</Overview>
+                <StepDivider />
+              </StepBox>
+              {/*  */}
+              <StepBox>
+                <StepNum>STEP 3</StepNum>
+                <Title>How do you make this recipe?</Title>
+                <Overview>Ingredients, Directions</Overview>
+                <StepDivider />
+              </StepBox>
+              {/*  */}
+            </StatusContainer>
+          </StatusLayoutDiv>
           <FormNavigation>
             <ButtonDiv>
               <BackButton>Back</BackButton>
