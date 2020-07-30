@@ -40,7 +40,7 @@ const ProgressBarDiv = styled.div`
 `;
 
 const ProgressSignifier = styled.div`
-  width: calc((100% / 9) * 1);
+  width: calc((100% / 9) * 4);
   border: 4px solid #317df6;
   border-radius: 0px 20px 20px 0px;
 `;
@@ -128,56 +128,18 @@ const StepDivider = styled.div`
 `;
 
 // Completed Step
-// const StepBox = styled.div`
-//   width: 100%;
-//   height: 72px;
-//   // background: red;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: flex-start;
-//   margin-bottom: 24px;
-// `;
-
-// const StepNum = styled.h4`
-//   font-size: 10px;
-//   font-family: "airbnb_cereal_appmedium";
-//   // font-weight: normal;
-//   margin-bottom: 0px;
-//   margin-top: 0px;
-// `;
 
 const CompletedDiv = styled.div`
-  width: 100%
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  // background: pink;
 `;
 const Check = styled.img`
   width: 20px;
   height: 20px;
 `;
-
-// const Title = styled.h4`
-//   font-size: 16px;
-//   font-family: "airbnb_cereal_appmedium";
-//   font-style: normal;
-//   font-weight: normal;
-//   margin-bottom: 4px;
-//   margin-top: 4px;
-// `;
-
-// const Overview = styled.h4`
-//   font-size: 12px;
-//   font-family: "airbnb_cereal_appbook";
-//   font-weight: normal;
-//   margin-bottom: 15px;
-//   margin-top: 0px;
-// `;
-
-// const StepDivider = styled.div`
-//   width: 100%;
-//   border: 1px solid #cbd2d9;
-// `;
 
 // Completed Step
 
