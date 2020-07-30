@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
@@ -19,16 +19,14 @@ import SuccessPage from "./components/RecipeForm/SuccessPage";
 import PrivateRoute from './utils/PrivateRoute';
 
 function App() {
-//   const [user, setUser] = useState({});
+  const [users, setUsers] = useState([]);
+  const [ingredients, setIngredients] = useState('')
 
-// 	const addUser = user => {
-//     setUser(user.target.value);
-//  };
+
 
   return (
     <div className="App">
       
-
       <Route exact path="/">
         <Login />
       </Route>

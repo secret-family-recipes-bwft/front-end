@@ -1,21 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Input from "../Input";
+import {axiosWithAuth} from '../../utils/AxiosWithAuth';
+
+const defaultState = {
+  ingredient1: "",
+  ingredient2: "",
+  ingredient3: "",
+  ingredient4: "",
+  ingredient5: "",
+  ingredient6: "",
+  ingredient7: "",
+  ingredient8: "",
+  ingredient9: "",
+  ingredient10: "",
+};
 
 export default function Ingredients() {
-  const defaultState = {
-    ingredient1: "",
-    ingredient2: "",
-    ingredient3: "",
-    ingredient4: "",
-    ingredient5: "",
-    ingredient6: "",
-    ingredient7: "",
-    ingredient8: "",
-    ingredient9: "",
-    ingredient10: "",
-  };
+
   const [formState, setFormState] = useState(defaultState);
+  
+
+  const {id} = useParams();
+
+
   function handleChange(e) {
     setFormState({
       ...formState,
@@ -27,12 +35,13 @@ export default function Ingredients() {
     formState(defaultState);
   }
 
+
   return (
     <div>
+      
       <h1>What are the ingredients?</h1>
       <form onSubmit={handleSubmit}>
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient1"
           placeholder="Ingredient 1"
@@ -40,7 +49,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient2"
           placeholder="Ingredient 2"
@@ -48,7 +56,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient3"
           placeholder="Ingredient 3"
@@ -56,7 +63,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient4"
           placeholder="Ingredient 4"
@@ -65,7 +71,6 @@ export default function Ingredients() {
         />
 
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient5"
           placeholder="Ingredient 5"
@@ -73,7 +78,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient6"
           placeholder="Ingredient 6"
@@ -81,7 +85,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient7"
           placeholder="Ingredient 7"
@@ -89,7 +92,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient8"
           placeholder="Ingredient 8"
@@ -97,7 +99,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient9"
           placeholder="Ingredient 9"
@@ -105,7 +106,6 @@ export default function Ingredients() {
           onChange={handleChange}
         />
         <Input
-          // label="What’s the name of your recipe?"
           type="text"
           name="ingredient10"
           placeholder="Ingredient 10"

@@ -64,7 +64,13 @@ export default function Login() {
   };
 
   const [formState, setFormState] = useState(defaultState);
+  
+
+
   const history = useHistory();
+
+
+
 
   const postUser = (input) => {
     console.log(input)
@@ -74,7 +80,9 @@ export default function Login() {
         input
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        localStorage.setItem("user ID", res.data.user.id)
+        // console.log(localStorage.getItem("user ID"))
         window.localStorage.setItem('token', res.data.token)
         if(window.localStorage.getItem('token'))
         {history.push('/return-user-dash')}

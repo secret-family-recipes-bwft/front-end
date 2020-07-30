@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import RecipeCards from "./RecipeCards";
 import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
@@ -56,10 +56,26 @@ const CardContainer = styled.div`
 export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" });
   const [userRecipes, setUserRecipes] = useState([]);
+  const [users, setUsers] = useState([]);
+
+  const id = localStorage.getItem('user ID')
 
   useEffect(() => {
     axiosWithAuth()
-      .get("https://bw-secret-family-recipes-1.herokuapp.com/api/recipes")
+    .get(`https://bw-secret-family-recipes-1.herokuapp.com/api/users/${id}`)
+    .then((res) => {
+      console.log(res.data)
+      setUsers(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [])
+
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`https://bw-secret-family-recipes-1.herokuapp.com/api/users/${id}/recipes`)
       .then((res) => {
         console.log(res.data);
         setUserRecipes(res.data)
@@ -103,14 +119,14 @@ export default function ReturnUserDashboard() {
     <CardContainer>
       {userRecipes.map((crrObj) => {
         return (
-          <Link style={{ textDecoration: "none" }} to="/user-recipe/:id">
+          // <Link to={`/api/users/${users.id}`}>
             <RecipeCards
               category={crrObj.category}
               title={crrObj.title}
               picture_url={crrObj.picture_url}
               prepTime={crrObj.prepTime}
             />
-          </Link>
+          // </Link>
         );
       })}
     </CardContainer>
