@@ -77,6 +77,7 @@ export default function Login() {
         console.log(res.data);
         localStorage.setItem("user ID", res.data.user.id)
         // console.log(localStorage.getItem("user ID"))
+        // console.log(res.data.user.id)
         window.localStorage.setItem('token', res.data.token)
         if(window.localStorage.getItem('token'))
         {history.push('/return-user-dash')}

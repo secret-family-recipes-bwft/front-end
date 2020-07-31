@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from '../../utils/AxiosWithAuth';
+
+import { SetUserRecipesContext } from "../../contexts/SetUserRecipeContext";
+// import { UserContext } from "../../contexts/UserContext";
 
 const CardWrapper = styled.div`
   display: flex;
@@ -38,37 +41,35 @@ const PrepTime = styled.p`
   color: #797979;
 `;
 
-export default function RecipeCards({
-  category,
-  title,
-  picture_url,
-  prepTime,
-  id
-}){
+export default function RecipeCards(props){
 
-  const [userRecipes, setUserRecipes] = useState([]);
+  const {category, title, picture_url, prepTime, id} = props
+
+  const {setUserRecipes} = useContext(SetUserRecipesContext);
+  // const {users} = useContext(UserContext);
 
   const userId = localStorage.getItem('user ID')
-
   const history=useHistory();
+  // const {id} = useParams()
 
   const handleClick = e => {
     history.push('/edit-recipe')
   }
 
 
-  const handleDelete = recipe => {
+  const handleDelete = userRecipe => {
     axiosWithAuth()
     .delete (`https://bw-secret-family-recipes-1.herokuapp.com/api/users/${userId}/recipes/${id}`)
     .then((res) => {
       console.log(res)
       setUserRecipes(res.data)
-      const updatedRecipeList = recipe.filter((recipe) => recipe.id !== res.data);
+      const updatedRecipeList = userRecipe.filter((userRecipe) => userRecipe.id !== res.data);
       setUserRecipes(updatedRecipeList);
     })
     .catch(err => console.log('delete err', err))
   };
 
+  
 
   return (
     <CardWrapper>
@@ -76,9 +77,9 @@ export default function RecipeCards({
         <h3>{category}</h3>
         <p>View More</p>
       </div> */}
-      <RecipeImage src={picture_url} alt={title} />
-      <RecipeName>{title}</RecipeName>
-      <PrepTime>{prepTime}</PrepTime>
+      <RecipeImage src={props.picture_url} alt={props.title} />
+      <RecipeName>{props.title}</RecipeName>
+      <PrepTime>{props.prepTime}</PrepTime>
       <button onClick={handleClick}>Edit Recipe</button>
       <button onClick={handleDelete}>Delete Recipe</button>
     </CardWrapper>

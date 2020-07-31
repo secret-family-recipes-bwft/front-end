@@ -22,10 +22,22 @@ import { UserContext } from "./contexts/UserContext";
 import { SetUsersContext } from "./contexts/SetUsersContext";
 import { UserRecipesContext } from "./contexts/RecipeContext";
 import { SetUserRecipesContext } from "./contexts/SetUserRecipeContext";
+import { InitialRecipeContext } from "./contexts/InitialRecipeContext";
+// import RecipeCards from "./components/Dashboard/RecipeCards";
 
+const initialRecipe = {
+  category: '',
+  title:'',
+  picture_url:'',
+  prepTime:'',
+  id:''
+}
 function App() {
+  
   const [userRecipes, setUserRecipes] = useState([]);
   const [users, setUsers] = useState([])
+
+
 
   return (
     <div className="App">
@@ -33,6 +45,7 @@ function App() {
       <SetUsersContext.Provider value={{setUsers}}>
       <UserRecipesContext.Provider value ={{userRecipes}}>
       <SetUserRecipesContext.Provider value = {{setUserRecipes}}>
+      <InitialRecipeContext.Provider value = {{initialRecipe}}>
         
       <Route exact path="/">
         <Login />
@@ -50,9 +63,9 @@ function App() {
         <NewUserDashboard />
       </PrivateRoute>
 
-      <PrivateRoute exact path="/edit-recipe/:id" >
+      <Route exact path="/edit-recipe/:id" >
         <EditRecipeForm/>
-      </PrivateRoute>
+      </Route>
 
       <Route exact path="/start-screen">
         <StartScreen />
@@ -89,12 +102,11 @@ function App() {
       <Route exact path="/recipe-created-success">
         <SuccessPage />
       </Route>
+      </InitialRecipeContext.Provider>
       </SetUserRecipesContext.Provider>
       </UserRecipesContext.Provider>
       </SetUsersContext.Provider>
       </UserContext.Provider>
-
-     
     </div>
   );
 }

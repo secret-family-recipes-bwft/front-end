@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 import RecipeCards from "./RecipeCards";
 import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
-import { UserContext } from "../../contexts/UserContext";
 import { SetUserRecipesContext } from "../../contexts/SetUserRecipeContext";
 import { SetUsersContext } from "../../contexts/SetUsersContext";
 import { UserRecipesContext } from "../../contexts/RecipeContext";
@@ -59,7 +58,7 @@ const CardContainer = styled.div`
 
 export default function ReturnUserDashboard() {
 
-  const {users} = useContext(UserContext);
+  
   const {setUsers} = useContext(SetUsersContext);
   const {userRecipes} = useContext(UserRecipesContext);
   const {setUserRecipes} = useContext(SetUserRecipesContext);
@@ -67,7 +66,7 @@ export default function ReturnUserDashboard() {
   const [search, setSearch] = useState({ search: "" });
 
   const id = localStorage.getItem('user ID')
-  const history = useHistory();
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -79,7 +78,7 @@ export default function ReturnUserDashboard() {
     .catch((err) => {
       console.log(err)
     })
-  }, [id])
+  }, [id, setUsers])
 
 
   useEffect(() => {
@@ -92,7 +91,7 @@ export default function ReturnUserDashboard() {
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id, setUserRecipes]);
 
   function handleChange(e) {
     setSearch({ ...search, [e.target.name]: e.target.value });
