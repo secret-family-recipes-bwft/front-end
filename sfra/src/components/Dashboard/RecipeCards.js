@@ -69,7 +69,6 @@ export default function RecipeCards(props){
     .catch(err => console.log('delete err', err))
   };
 
-
   return (
     <CardWrapper>
       {/* <div>

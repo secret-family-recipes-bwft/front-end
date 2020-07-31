@@ -127,7 +127,6 @@ export default function SignUp() {
   function handleChange(e) {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
-
     setFormState({ ...formState, [e.target.name]: value });
   }
 

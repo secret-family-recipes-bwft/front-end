@@ -4,9 +4,22 @@ import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
 import noRecipe from "./noRecipe.svg";
 
+<<<<<<< HEAD
 const Header = styled.div`
   display: flex;
   width: 100%;
+=======
+
+
+const Header = styled.div`
+  display: flex;
+  width: 100%;
+
+const Header = styled.div`
+  display: flex;
+  width: 100%
+
+>>>>>>> f57dd27e1bfc10e8e99bf4b37107e2102c909780
   height: 140px;
   justify-content: space-between;
 `;
@@ -50,8 +63,13 @@ const ContentDivider = styled.div`
 `;
 
 const OoppsDiv = styled.div`
+<<<<<<< HEAD
 height: 400px;
 width: 100%;
+=======
+width: 100%;
+width: 100%
+>>>>>>> f57dd27e1bfc10e8e99bf4b37107e2102c909780
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -64,7 +82,11 @@ const OoppsImg = styled.img`
 `;
 
 const OoppsMSG = styled.h3`
+<<<<<<< HEAD
   font-family: "airbnb_cereal_appbook";
+=======
+  fontfamily: "airbnb_cereal_appbook";
+>>>>>>> f57dd27e1bfc10e8e99bf4b37107e2102c909780
   font-size: 24px;
   margin-bottom: 20px;
   color: #bdbdbd;
@@ -87,6 +109,10 @@ export default function NewUserDashboard() {
 
   return (
     <div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f57dd27e1bfc10e8e99bf4b37107e2102c909780
     <Header>
       <Link style={{ textDecoration: "none" }} to="/dash">
         <Logo>Family Recipe App</Logo>
