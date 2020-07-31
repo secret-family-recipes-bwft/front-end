@@ -34,6 +34,7 @@ export default function TextInputStyle({
   errors,
   placeholder,
 }) {
+  const errorMessage = errors[name];
   return (
     <InputDiv>
       <InputLabel>
@@ -46,6 +47,9 @@ export default function TextInputStyle({
           errors={errors}
           placeholder={placeholder}
         />
+        {errorMessage !== 0 && (
+          <p style={{ color: "red", fontSize: ".75em" }}>{errorMessage}</p>
+        )}
       </InputLabel>
     </InputDiv>
   );

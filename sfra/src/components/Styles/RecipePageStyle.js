@@ -416,11 +416,14 @@ export default function RecipePageStyle() {
         <RecipeImage src="https://images.unsplash.com/photo-1586819286107-b4fb6cc7049f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1570&q=80" />
         <OverLay />
         <Header>
-          <Logo>Family Recipe App</Logo>
-          <ButtonDiv>
+          <Link style={{ textDecoration: "none" }} to="/return-user-dash">
+            <Logo>Family Recipe App</Logo>
+          </Link>
+
+          {/* <ButtonDiv>
             <CreateButton>+Create Recipe</CreateButton>
             <CreateButton>Edit</CreateButton>
-          </ButtonDiv>
+          </ButtonDiv> */}
         </Header>
         <DetailsDiv>
           <RecipeTitle>Spaghetti and Meatballs</RecipeTitle>
