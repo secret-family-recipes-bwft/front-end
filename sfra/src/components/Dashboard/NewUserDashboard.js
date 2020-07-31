@@ -5,9 +5,15 @@ import styled from "styled-components";
 import noRecipe from "./noRecipe.svg";
 
 
+
 const Header = styled.div`
   display: flex;
   width: 100%;
+
+const Header = styled.div`
+  display: flex;
+  width: 100%
+
   height: 140px;
   justify-content: space-between;
 `;
@@ -51,8 +57,8 @@ const ContentDivider = styled.div`
 `;
 
 const OoppsDiv = styled.div`
-height: 400px;
 width: 100%;
+width: 100%
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -65,7 +71,7 @@ const OoppsImg = styled.img`
 `;
 
 const OoppsMSG = styled.h3`
-  font-family: "airbnb_cereal_appbook";
+  fontfamily: "airbnb_cereal_appbook";
   font-size: 24px;
   margin-bottom: 20px;
   color: #bdbdbd;
@@ -88,6 +94,7 @@ export default function NewUserDashboard() {
 
   return (
     <div>
+
     <Header>
       <Link style={{ textDecoration: "none" }} to="/dash">
         <Logo>Family Recipe App</Logo>

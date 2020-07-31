@@ -62,10 +62,12 @@ const Logo = styled.h2`
 const CreateButton = styled.button`
   width: 145px;
   height: 60px;
+
   background: white;
   border-radius: 5px;
   border: none;
   color: #317df6;
+
   font-size: 12px;
   font-family: "airbnb_cereal_appmedium";
   flex-grow: 1;
@@ -414,11 +416,13 @@ export default function RecipePageStyle() {
         <RecipeImage src="https://images.unsplash.com/photo-1586819286107-b4fb6cc7049f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1570&q=80" />
         <OverLay />
         <Header>
+
           <Logo>Family Recipe App</Logo>
           <ButtonDiv>
             <CreateButton>+Create Recipe</CreateButton>
             <CreateButton>Edit</CreateButton>
           </ButtonDiv>
+
         </Header>
         <DetailsDiv>
           <RecipeTitle>Spaghetti and Meatballs</RecipeTitle>
@@ -554,3 +558,4 @@ export default function RecipePageStyle() {
     </PageContainer>
   );
 }
+

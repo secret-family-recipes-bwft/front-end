@@ -24,3 +24,4 @@ const PageWrapper = styled.div`
 export default function SignUpLoginPageContainer({}) {
   return <PageWrapper></PageWrapper>;
 }
+

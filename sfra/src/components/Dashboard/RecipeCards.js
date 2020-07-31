@@ -69,19 +69,20 @@ export default function RecipeCards(props){
     .catch(err => console.log('delete err', err))
   };
 
-  
-
+ 
   return (
     <CardWrapper>
       {/* <div>
         <h3>{category}</h3>
         <p>View More</p>
       </div> */}
+
       <RecipeImage src={props.picture_url} alt={props.title} />
       <RecipeName>{props.title}</RecipeName>
       <PrepTime>{props.prepTime}</PrepTime>
       <button onClick={handleClick}>Edit Recipe</button>
       <button onClick={handleDelete}>Delete Recipe</button>
+
     </CardWrapper>
   );
 }

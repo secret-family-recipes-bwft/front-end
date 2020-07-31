@@ -34,6 +34,7 @@ export default function TextInputStyle({
   errors,
   placeholder,
 }) {
+
   return (
     <InputDiv>
       <InputLabel>
@@ -50,3 +51,4 @@ export default function TextInputStyle({
     </InputDiv>
   );
 }
+

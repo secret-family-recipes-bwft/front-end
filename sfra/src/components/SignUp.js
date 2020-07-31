@@ -27,6 +27,7 @@ const Logo = styled.h2`
 
 const CardWrapper = styled.div`
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -43,17 +44,62 @@ const Heading = styled.h2`
 `;
 
 const SecondHeading = styled.h2`
-  font-family: "airbnb_cereal_appbook";
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
   font-size: 24px;
   margin-top: 70px;
 `;
 
 const AltLink = styled.h3`
-  font-family: "airbnb_cereal_appbook";
+  fontfamily: "airbnb_cereal_appbook";
   font-size: 14px;
   color: #317df6;
   text-decoration: none;
 `;
+
+
+const FormWrapper = styled.div`
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: start;
+  // background: red;
+`;
+
+const Button = styled.button`
+  width: 145px;
+  height: 40px;
+
+  background: #317df6;
+  border-radius: 5px;
+  border: none;
+  color: white;
+
+  font-size: 12px;
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
+  margin-bottom: 10px;
+`;
+
+const SubDirection = styled.div`
+  margin-bottom: 40px;
+`;
+
+const GapDiv = styled.div`
+  height: 200px;
+  border: 1px solid black;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-radius: 12px;
+`;
+
+const Illustartion = styled.img`
+  width: 300px;
+`;
+
 
 export default function SignUp() {
   const defaultState = {
@@ -63,6 +109,7 @@ export default function SignUp() {
   };
 
   const [formState, setFormState] = useState(defaultState);
+
   const history = useHistory()
 
   const postUser = (input) => {
@@ -81,10 +128,52 @@ export default function SignUp() {
       });
   };
 
+  const formSchema = yup.object().shape({
+    username: yup
+      .string()
+      .min(4, "Please provide your username")
+      .required("Please provide a name for your recipe"),
+    email: yup
+      .string()
+      .required("Please provide an email")
+      .email("Please provide a valid email"),
+    password: yup
+      .string()
+      .min(8, "Passwords must be at least 4 characters long")
+      .required("Password are required"),
+  });
+
+  function validateChange(e) {
+    e.persist();
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
+
+  function validateChange(e) {
+    e.persist();
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
+
   function handleChange(e) {
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
-
     setFormState({ ...formState, [e.target.name]: value });
   }
 
@@ -96,6 +185,7 @@ export default function SignUp() {
 
   return (
     <div>
+
     <Header>
       <Logo>Family Recipe App</Logo>
     </Header>

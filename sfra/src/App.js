@@ -14,6 +14,7 @@ import StartScreen3 from "./components/RecipeForm/StartScreen3";
 import Ingredients from "./components/RecipeForm/Ingredients";
 import Directions from "./components/RecipeForm/Directions";
 import SuccessPage from "./components/RecipeForm/SuccessPage";
+import RecipePageStyle from "./components/Styles/RecipePageStyle";
 
 import PrivateRoute from './utils/PrivateRoute';
 import EditRecipeForm from "./components/Dashboard/EditRecipeForm";
@@ -54,6 +55,10 @@ function App() {
       <PrivateRoute exact path="/return-user-dash">
         <ReturnUserDashboard />
       </PrivateRoute>
+
+      <Route exact path="/user-recipe/:id">
+        <RecipePageStyle />
+      </Route>
 
       <Route exact path="/SignUp">
         <SignUp />

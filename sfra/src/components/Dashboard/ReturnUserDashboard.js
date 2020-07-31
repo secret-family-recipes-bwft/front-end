@@ -3,6 +3,7 @@ import { Link} from "react-router-dom";
 import RecipeCards from "./RecipeCards";
 import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
+
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
 import { SetUserRecipesContext } from "../../contexts/SetUserRecipeContext";
 import { SetUsersContext } from "../../contexts/SetUsersContext";
@@ -11,6 +12,10 @@ import { UserRecipesContext } from "../../contexts/RecipeContext";
 const Header = styled.div`
   display: flex;
   width: 100%;
+
+import DummyData from "../../DummyData";
+
+
   height: 140px;
   justify-content: space-between;
 `;
@@ -58,6 +63,7 @@ const CardContainer = styled.div`
 
 export default function ReturnUserDashboard() {
 
+
   
   const {setUsers} = useContext(SetUsersContext);
   const {userRecipes} = useContext(UserRecipesContext);
@@ -87,9 +93,10 @@ export default function ReturnUserDashboard() {
       .then((res) => {
         console.log(res.data);
         setUserRecipes(res.data)
+
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Failed!!", err);
       });
   }, [id, setUserRecipes]);
 
