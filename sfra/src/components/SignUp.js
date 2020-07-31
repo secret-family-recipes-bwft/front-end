@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Input from "./Input";
+// import Input from "./Input";
 import axios from "axios";
 import TextInputStyle from "./Styles/TextInputStyle";
 import PrimaryButton from "./Styles/PrimaryButton";
 import styled from "styled-components";
 import welcome from "./welcome.svg";
+import * as yup from "yup";
 
 const PageContainer = styled.div`
   display: flex;
@@ -111,11 +112,13 @@ export default function SignUp() {
     username: "",
     email: "",
     password: "",
-    // terms: false,
   };
 
   const [formState, setFormState] = useState(defaultState);
-  const [user, setUser] = useState({});
+  const [errors, setErrors] = useState({
+    ...defaultState,
+  });
+  // const [user, setUser] = useState({});
 
   const postUser = (input) => {
     axios
@@ -131,19 +134,55 @@ export default function SignUp() {
       });
   };
 
-  function handleChange(e) {
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+  const formSchema = yup.object().shape({
+    username: yup
+      .string()
+      .min(4, "Please provide your username")
+      .required("Please provide a name for your recipe"),
+    email: yup
+      .string()
+      .required("Please provide an email")
+      .email("Please provide a valid email"),
+    password: yup
+      .string()
+      .min(8, "Passwords must be at least 4 characters long")
+      .required("Password are required"),
+  });
 
-    setFormState({ ...formState, [e.target.name]: value });
-    // const onCheckBoxChange = (evt) => {
-    //   const checked = evt.target.checked;
-    //   console.log(checked);
-    //   setFormValues({
-    //     ...formValues,
-    //     termsOfService: checked,
-    //   });
-    // };
+  function validateChange(e) {
+    e.persist();
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
+
+  function validateChange(e) {
+    e.persist();
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
+
+  function handleChange(e) {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
+    validateChange(e);
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -170,6 +209,7 @@ export default function SignUp() {
                 name="username"
                 value={formState.username}
                 onChange={handleChange}
+                errors={errors}
               />
               <TextInputStyle
                 label="Email"
@@ -177,6 +217,7 @@ export default function SignUp() {
                 name="email"
                 value={formState.email}
                 onChange={handleChange}
+                errors={errors}
               />
               <TextInputStyle
                 label="Password"
@@ -184,6 +225,7 @@ export default function SignUp() {
                 name="password"
                 value={formState.password}
                 onChange={handleChange}
+                errors={errors}
               />
               <Link
                 style={{
