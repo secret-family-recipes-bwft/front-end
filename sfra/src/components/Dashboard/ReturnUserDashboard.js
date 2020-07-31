@@ -5,9 +5,9 @@ import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
 import { UserContext } from "../../contexts/UserContext";
-import { setUserRecipesContext } from "../../contexts/SetUserRecipeContext";
+import { SetUserRecipesContext } from "../../contexts/SetUserRecipeContext";
 import { SetUsersContext } from "../../contexts/SetUsersContext";
-import { userRecipesContext } from "../../contexts/RecipeContext";
+import { UserRecipesContext } from "../../contexts/RecipeContext";
 
 const Header = styled.div`
   display: flex;
@@ -59,14 +59,12 @@ const CardContainer = styled.div`
 
 export default function ReturnUserDashboard() {
 
-  const users = useContext(UserContext);
-  const setUsers = useContext(SetUsersContext);
-  
-
+  const {users} = useContext(UserContext);
+  const {setUsers} = useContext(SetUsersContext);
+  const {userRecipes} = useContext(UserRecipesContext);
+  const {setUserRecipes} = useContext(SetUserRecipesContext);
 
   const [search, setSearch] = useState({ search: "" });
-  const [userRecipes, setUserRecipes] = useState([]);
-  // const [users, setUsers] = useState([]);
 
   const id = localStorage.getItem('user ID')
   const history = useHistory();

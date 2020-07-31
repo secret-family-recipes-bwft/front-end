@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from '../../utils/AxiosWithAuth';
 
-
-
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
