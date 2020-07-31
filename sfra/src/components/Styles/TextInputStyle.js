@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
 import styled from "styled-components";
 
 const InputDiv = styled.div`
@@ -34,6 +38,10 @@ export default function TextInputStyle({
   errors,
   placeholder,
 }) {
+<<<<<<< HEAD
+=======
+  const errorMessage = errors[name];
+>>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   return (
     <InputDiv>
       <InputLabel>
@@ -46,7 +54,17 @@ export default function TextInputStyle({
           errors={errors}
           placeholder={placeholder}
         />
+<<<<<<< HEAD
       </InputLabel>
     </InputDiv>
   );
 }
+=======
+        {errorMessage !== 0 && (
+          <p style={{ color: "red", fontSize: ".75em" }}>{errorMessage}</p>
+        )}
+      </InputLabel>
+    </InputDiv>
+  );
+}
+>>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
