@@ -3,7 +3,6 @@ import { Link} from "react-router-dom";
 import RecipeCards from "./RecipeCards";
 import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
-<<<<<<< HEAD
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
 import { SetUserRecipesContext } from "../../contexts/SetUserRecipeContext";
 import { SetUsersContext } from "../../contexts/SetUsersContext";
@@ -12,13 +11,6 @@ import { UserRecipesContext } from "../../contexts/RecipeContext";
 const Header = styled.div`
   display: flex;
   width: 100%;
-=======
-import DummyData from "../../DummyData";
-
-const Header = styled.div`
-  display: flex;
-  width: 100%
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   height: 140px;
   justify-content: space-between;
 `;
@@ -40,11 +32,7 @@ const SearchDiv = styled.div`
   justify-content: center;
 `;
 const SearchHeading = styled.h3`
-<<<<<<< HEAD
   font-family: "airbnb_cereal_appbook";
-=======
-  fontfamily: "airbnb_cereal_appbook";
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   font-size: 24px;
   margin-bottom: 20px;
 `;
@@ -65,22 +53,16 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   margin-top: 100px;
   justify-content: space-evenly;
-<<<<<<< HEAD
-=======
-
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   // background-color: pink;
 `;
 
 export default function ReturnUserDashboard() {
-<<<<<<< HEAD
 
-  
+  const [search, setSearch] = useState({ search: "" });
+
   const {setUsers} = useContext(SetUsersContext);
   const {userRecipes} = useContext(UserRecipesContext);
   const {setUserRecipes} = useContext(SetUserRecipesContext);
-
-  const [search, setSearch] = useState({ search: "" });
 
   const id = localStorage.getItem('user ID')
 
@@ -104,24 +86,9 @@ export default function ReturnUserDashboard() {
       .then((res) => {
         console.log(res.data);
         setUserRecipes(res.data)
-=======
-  const [search, setSearch] = useState({ search: "" }); // Stretch
-  const [userRecipes, setUserRecipes] = useState(DummyData);
-
-  useEffect(() => {
-    axios
-      .get(
-        // `https://bw-secret-family-recipes-1.herokuapp.com/api/users/2/recipes`
-        `https://bw-secret-family-recipes-1.herokuapp.com/api/recipes`
-      )
-      .then((res) => {
-        console.log("Hello!!", res.data);
-
-        // setUserRecipes(res.data);
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
       })
       .catch((err) => {
-        console.log("Failed!!", err);
+        console.log(err);
       });
   }, [id, setUserRecipes]);
 
@@ -134,7 +101,6 @@ export default function ReturnUserDashboard() {
 
   return (
     <div>
-<<<<<<< HEAD
     <Header>
       <Link style={{ textDecoration: "none" }} to="/dash">
         <Logo>Family Recipe App</Logo>
@@ -170,44 +136,5 @@ export default function ReturnUserDashboard() {
       })}
     </CardContainer>
   </div>
-=======
-      <Header>
-        <Link style={{ textDecoration: "none" }} to="/dash">
-          <Logo>Family Recipe App</Logo>
-        </Link>
-
-        <Link to="/start-screen">
-          <SecondaryButton action="+Create Recipe" />
-        </Link>
-      </Header>
-
-      <SearchDiv>
-        <SearchHeading>Search Recipes</SearchHeading>
-        <form onSubmit={handleSubmit}>
-          <SearchInput
-            type="text"
-            name="search"
-            value={search.search}
-            onChange={handleChange}
-          />
-        </form>
-      </SearchDiv>
-
-      <CardContainer>
-        {userRecipes.map((crrObj) => {
-          return (
-            <Link style={{ textDecoration: "none" }} to="/user-recipe/:id">
-              <RecipeCards
-                category={crrObj.category}
-                title={crrObj.title}
-                picture_url={crrObj.picture_url}
-                prepTime={crrObj.prepTime}
-              />
-            </Link>
-          );
-        })}
-      </CardContainer>
-    </div>
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   );
 }
