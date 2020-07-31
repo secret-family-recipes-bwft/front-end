@@ -43,13 +43,15 @@ const CardWrapper = styled.div`
 `;
 
 const Heading = styled.h2`
-  fontfamily: "airbnb_cereal_appbook";
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
   font-size: 24px;
   margin-bottom: 50px;
 `;
 
 const SecondHeading = styled.h2`
-  fontfamily: "airbnb_cereal_appbook";
+  font-family: "airbnb_cereal_appmedium";
+  font-weight: normal;
   font-size: 24px;
   margin-top: 70px;
 `;
@@ -181,8 +183,15 @@ export default function Login() {
                 value={formState.password}
                 onChange={handleChange}
               />
-
-              <Link to="/return-user-dash">
+              <Link
+                style={{
+                  margin: "0px",
+                  // background: "pink",
+                  display: "flex",
+                  textDecoration: "none",
+                }}
+                to="/return-user-dash"
+              >
                 <Button>Login</Button>
               </Link>
             </form>
