@@ -230,7 +230,6 @@ export default function SignUp() {
               <Link
                 style={{
                   margin: "0px",
-                  // background: "pink",
                   display: "flex",
                   textDecoration: "none",
                 }}
