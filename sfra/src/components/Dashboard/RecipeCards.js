@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
+import { axiosWithAuth } from '../../utils/AxiosWithAuth';
+
 
 
 const CardWrapper = styled.div`
@@ -42,7 +45,33 @@ export default function RecipeCards({
   title,
   picture_url,
   prepTime,
-}) {
+  id
+}){
+
+  const [userRecipes, setUserRecipes] = useState([]);
+
+  const userId = localStorage.getItem('user ID')
+
+  const history=useHistory();
+
+  const handleClick = e => {
+    history.push('/edit-recipe')
+  }
+
+
+  const handleDelete = recipe => {
+    axiosWithAuth()
+    .delete (`https://bw-secret-family-recipes-1.herokuapp.com/api/users/${userId}/recipes/${id}`)
+    .then((res) => {
+      console.log(res)
+      setUserRecipes(res.data)
+      const updatedRecipeList = recipe.filter((recipe) => recipe.id !== res.data);
+      setUserRecipes(updatedRecipeList);
+    })
+    .catch(err => console.log('delete err', err))
+  };
+
+
   return (
     <CardWrapper>
       {/* <div>
@@ -52,6 +81,8 @@ export default function RecipeCards({
       <RecipeImage src={picture_url} alt={title} />
       <RecipeName>{title}</RecipeName>
       <PrepTime>{prepTime}</PrepTime>
+      <button onClick={handleClick}>Edit Recipe</button>
+      <button onClick={handleDelete}>Delete Recipe</button>
     </CardWrapper>
   );
 }

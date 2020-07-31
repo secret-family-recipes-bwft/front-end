@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Input from "../Input";
-import {axiosWithAuth} from '../../utils/AxiosWithAuth';
+
 
 const defaultState = {
   ingredient1: "",
@@ -20,9 +20,6 @@ export default function Ingredients() {
 
   const [formState, setFormState] = useState(defaultState);
   
-
-  const {id} = useParams();
-
 
   function handleChange(e) {
     setFormState({

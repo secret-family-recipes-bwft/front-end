@@ -17,16 +17,25 @@ import SuccessPage from "./components/RecipeForm/SuccessPage";
 
 // import {UserContext} from './contexts/UserContext';
 import PrivateRoute from './utils/PrivateRoute';
+import RecipesList from "./components/Dashboard/EditRecipeForm";
+import EditRecipeForm from "./components/Dashboard/EditRecipeForm";
+
+import { UserContext } from "./contexts/UserContext";
+import { SetUsersContext } from "./contexts/SetUsersContext";
+import { UserRecipesContext } from "./contexts/RecipeContext";
+import { SetUserRecipesContext } from "./contexts/SetUserRecipeContext";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [ingredients, setIngredients] = useState('')
-
-
+  const [userRecipes, setUserRecipes] = useState([]);
+  const [users, setUsers] = useState([])
 
   return (
     <div className="App">
-      
+      <UserContext.Provider value={{users}} >
+      <SetUsersContext.Provider value={{setUsers}}>
+      <UserRecipesContext.Provider value ={{userRecipes}}>
+      <SetUserRecipesContext.Provider value = {{setUserRecipes}}>
+        
       <Route exact path="/">
         <Login />
       </Route>
@@ -41,6 +50,10 @@ function App() {
 
       <PrivateRoute exact path="/new-user-dash">
         <NewUserDashboard />
+      </PrivateRoute>
+
+      <PrivateRoute exact path="/edit-recipe/:id" >
+        <EditRecipeForm/>
       </PrivateRoute>
 
       <Route exact path="/start-screen">
@@ -78,6 +91,11 @@ function App() {
       <Route exact path="/recipe-created-success">
         <SuccessPage />
       </Route>
+      </SetUserRecipesContext.Provider>
+      </UserRecipesContext.Provider>
+      </SetUsersContext.Provider>
+      </UserContext.Provider>
+
      
     </div>
   );

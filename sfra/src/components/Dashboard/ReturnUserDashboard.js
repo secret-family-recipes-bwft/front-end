@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
 import RecipeCards from "./RecipeCards";
 import SecondaryButton from "../Styles/SecondaryButton";
 import styled from "styled-components";
 import { axiosWithAuth } from "../../utils/AxiosWithAuth";
+import { UserContext } from "../../contexts/UserContext";
+import { setUserRecipesContext } from "../../contexts/SetUserRecipeContext";
+import { SetUsersContext } from "../../contexts/SetUsersContext";
+import { userRecipesContext } from "../../contexts/RecipeContext";
 
 const Header = styled.div`
   display: flex;
@@ -54,11 +58,18 @@ const CardContainer = styled.div`
 `;
 
 export default function ReturnUserDashboard() {
+
+  const users = useContext(UserContext);
+  const setUsers = useContext(SetUsersContext);
+  
+
+
   const [search, setSearch] = useState({ search: "" });
   const [userRecipes, setUserRecipes] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
 
   const id = localStorage.getItem('user ID')
+  const history = useHistory();
 
   useEffect(() => {
     axiosWithAuth()
@@ -70,7 +81,7 @@ export default function ReturnUserDashboard() {
     .catch((err) => {
       console.log(err)
     })
-  }, [])
+  }, [id])
 
 
   useEffect(() => {
@@ -83,7 +94,7 @@ export default function ReturnUserDashboard() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [id]);
 
   function handleChange(e) {
     setSearch({ ...search, [e.target.name]: e.target.value });
@@ -119,14 +130,12 @@ export default function ReturnUserDashboard() {
     <CardContainer>
       {userRecipes.map((crrObj) => {
         return (
-          // <Link to={`/api/users/${users.id}`}>
             <RecipeCards
               category={crrObj.category}
               title={crrObj.title}
               picture_url={crrObj.picture_url}
               prepTime={crrObj.prepTime}
             />
-          // </Link>
         );
       })}
     </CardContainer>

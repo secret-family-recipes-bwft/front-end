@@ -64,13 +64,7 @@ export default function Login() {
   };
 
   const [formState, setFormState] = useState(defaultState);
-  
-
-
   const history = useHistory();
-
-
-
 
   const postUser = (input) => {
     console.log(input)
@@ -100,7 +94,6 @@ export default function Login() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('test')
     postUser(formState);
     setFormState(defaultState);
   }
