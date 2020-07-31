@@ -6,6 +6,7 @@ import TextInputStyle from "./Styles/TextInputStyle";
 import PrimaryButton from "./Styles/PrimaryButton";
 import styled from "styled-components";
 import welcome from "./welcome.svg";
+import * as yup from "yup";
 
 const PageContainer = styled.div`
   display: flex;
@@ -128,7 +129,10 @@ export default function Login() {
   // }
 
   const [formState, setFormState] = useState(defaultState);
-  const [user, setUser] = useState({});
+  const [errors, setErrors] = useState({
+    ...defaultState,
+  });
+  // const [user, setUser] = useState({});
 
   const postUser = (input) => {
     axios
@@ -144,11 +148,37 @@ export default function Login() {
       });
   };
 
+  const formSchema = yup.object().shape({
+    username: yup
+      .string()
+      .min(4, "Please provide your username")
+      .required("Please provide a name for your recipe"),
+    password: yup
+      .string()
+      .min(8, "Passwords must be at least 4 characters long")
+      .required("Password are required"),
+  });
+
+  function validateChange(e) {
+    e.persist();
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
+
   function handleChange(e) {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
+    validateChange(e);
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -167,7 +197,10 @@ export default function Login() {
             <Heading>Welcome Back</Heading>
             <form
               onSubmit={handleSubmit}
-              style={{ display: "flex", flexDirection: "column" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
             >
               <TextInputStyle
                 label="Username"
@@ -175,6 +208,7 @@ export default function Login() {
                 name="username"
                 value={formState.username}
                 onChange={handleChange}
+                errors={errors}
               />
               <TextInputStyle
                 label="Password"
@@ -182,6 +216,7 @@ export default function Login() {
                 name="password"
                 value={formState.password}
                 onChange={handleChange}
+                errors={errors}
               />
               <Link
                 style={{
