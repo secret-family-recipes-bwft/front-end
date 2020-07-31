@@ -62,18 +62,10 @@ const Logo = styled.h2`
 const CreateButton = styled.button`
   width: 145px;
   height: 60px;
-<<<<<<< HEAD
-=======
-
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   background: white;
   border-radius: 5px;
   border: none;
   color: #317df6;
-<<<<<<< HEAD
-=======
-
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
   font-size: 12px;
   font-family: "airbnb_cereal_appmedium";
   flex-grow: 1;
@@ -422,22 +414,11 @@ export default function RecipePageStyle() {
         <RecipeImage src="https://images.unsplash.com/photo-1586819286107-b4fb6cc7049f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1570&q=80" />
         <OverLay />
         <Header>
-<<<<<<< HEAD
           <Logo>Family Recipe App</Logo>
           <ButtonDiv>
             <CreateButton>+Create Recipe</CreateButton>
             <CreateButton>Edit</CreateButton>
           </ButtonDiv>
-=======
-          <Link style={{ textDecoration: "none" }} to="/return-user-dash">
-            <Logo>Family Recipe App</Logo>
-          </Link>
-
-          {/* <ButtonDiv>
-            <CreateButton>+Create Recipe</CreateButton>
-            <CreateButton>Edit</CreateButton>
-          </ButtonDiv> */}
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
         </Header>
         <DetailsDiv>
           <RecipeTitle>Spaghetti and Meatballs</RecipeTitle>
@@ -572,8 +553,4 @@ export default function RecipePageStyle() {
       </ContentWrapper>
     </PageContainer>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
