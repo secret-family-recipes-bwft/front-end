@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React from "react";
-=======
-import React, { useState } from "react";
->>>>>>> f0896be2e3f1344b75346ba0b1a832fc8b3147f3
 import styled from "styled-components";
 
 const InputField = styled.input`
