@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
@@ -14,23 +14,62 @@ import StartScreen3 from "./components/RecipeForm/StartScreen3";
 import Ingredients from "./components/RecipeForm/Ingredients";
 import Directions from "./components/RecipeForm/Directions";
 import SuccessPage from "./components/RecipeForm/SuccessPage";
+import RecipePageStyle from "./components/Styles/RecipePageStyle";
 
+import PrivateRoute from './utils/PrivateRoute';
+import EditRecipeForm from "./components/Dashboard/EditRecipeForm";
+
+import { UserContext } from "./contexts/UserContext";
+import { SetUsersContext } from "./contexts/SetUsersContext";
+import { UserRecipesContext } from "./contexts/RecipeContext";
+import { SetUserRecipesContext } from "./contexts/SetUserRecipeContext";
+import { InitialRecipeContext } from "./contexts/InitialRecipeContext";
+// import RecipeCards from "./components/Dashboard/RecipeCards";
+//test
+const initialRecipe = {
+  category: '',
+  title:'',
+  picture_url:'',
+  prepTime:'',
+  id:''
+}
 function App() {
+  
+  const [userRecipes, setUserRecipes] = useState([]);
+  const [users, setUsers] = useState([])
+
+
+
   return (
     <div className="App">
+      <UserContext.Provider value={{users}} >
+      <SetUsersContext.Provider value={{setUsers}}>
+      <UserRecipesContext.Provider value ={{userRecipes}}>
+      <SetUserRecipesContext.Provider value = {{setUserRecipes}}>
+      <InitialRecipeContext.Provider value = {{initialRecipe}}>
+        
       <Route exact path="/">
         <Login />
       </Route>
-      <Route exact path="/return-user-dash">
+
+      <PrivateRoute exact path="/return-user-dash">
         <ReturnUserDashboard />
+      </PrivateRoute>
+
+      <Route exact path="/user-recipe/:id">
+        <RecipePageStyle />
       </Route>
 
       <Route exact path="/SignUp">
         <SignUp />
       </Route>
 
-      <Route exact path="/new-user-dash">
+      <PrivateRoute exact path="/new-user-dash">
         <NewUserDashboard />
+      </PrivateRoute>
+
+      <Route exact path="/edit-recipe/:id" >
+        <EditRecipeForm/>
       </Route>
 
       <Route exact path="/start-screen">
@@ -68,6 +107,11 @@ function App() {
       <Route exact path="/recipe-created-success">
         <SuccessPage />
       </Route>
+      </InitialRecipeContext.Provider>
+      </SetUserRecipesContext.Provider>
+      </UserRecipesContext.Provider>
+      </SetUsersContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 }

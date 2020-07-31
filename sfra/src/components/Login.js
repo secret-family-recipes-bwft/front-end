@@ -1,7 +1,61 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Input from "./Input";
-import axios from "axios";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import {axiosWithAuth} from '../utils/AxiosWithAuth';
+
+import TextInputStyle from "./Styles/TextInputStyle";
+import PrimaryButton from "./Styles/PrimaryButton";
+import styled from "styled-components";
+
+const PageContainer = styled.div`
+  display: flex;
+  width: 100vw;
+  margin: 0 auto;
+  justify-content: center;
+`;
+
+const Header = styled.div`
+  display: flex;
+  width: 100%;
+  height: 140px;
+`;
+
+const Logo = styled.h2`
+  font-family: "airbnb_cereal_appbold";
+  font-size: 18px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+  margin-left: 80px;
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 630px;
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+`;
+
+const Heading = styled.h2`
+  font-family: "airbnb_cereal_appbook";
+  font-size: 24px;
+  margin-bottom: 70px;
+`;
+
+const SecondHeading = styled.h2`
+  font-family: "airbnb_cereal_appbook";
+  font-size: 24px;
+  margin-top: 70px;
+`;
+
+const AltLink = styled.h3`
+  font-family: "airbnb_cereal_appbook";
+  font-size: 14px;
+  color: #317df6;
+  text-decoration: none;
+`;
 
 export default function Login() {
   const defaultState = {
@@ -9,44 +63,61 @@ export default function Login() {
     password: "",
   };
 
-  // api/auth/register
-
-  // useEffect(() => {
-  //   axios.post(
-  //     "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login", formState
-  //   ).then()
-  // }, []);
-
-  // const postUser = aUser => {
-  //   axios.post(
-  //     "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login", aUser
-  //   ).then(res => {
-  //     setUser
-  //   })
-  // }
-
   const [formState, setFormState] = useState(defaultState);
-  const [user, setUser] = useState({});
+  const history = useHistory();
 
   const postUser = (input) => {
-    axios
+    console.log(input)
+    axiosWithAuth()
       .post(
         "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/login",
         input
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        localStorage.setItem("user ID", res.data.user.id)
+        // console.log(localStorage.getItem("user ID"))
+        // console.log(res.data.user.id)
+        window.localStorage.setItem('token', res.data.token)
+        if(window.localStorage.getItem('token'))
+        {history.push('/return-user-dash')}
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Faild logged in", err);
       });
   };
+
+  const formSchema = yup.object().shape({
+    username: yup
+      .string()
+      .min(4, "Please provide your username")
+      .required("Please provide a name for your recipe"),
+    password: yup
+      .string()
+      .min(8, "Passwords must be at least 4 characters long")
+      .required("Password are required"),
+  });
+
+  function validateChange(e) {
+    e.persist();
+
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
 
   function handleChange(e) {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
+    validateChange(e);
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -56,31 +127,38 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Welcome Back</h1>
-      <form onSubmit={handleSubmit}>
-        <Input
-          label="Username"
-          type="username"
-          name="username"
-          value={formState.username}
-          onChange={handleChange}
-        />
-        <Input
-          label="Password"
-          type="password"
-          name="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        <br />
-        {/* <Link to="/return-user-dash"> */}
-        <button>Login</button>
-        {/* </Link> */}
-      </form>
-      <h1>Im new here</h1>
-      <Link to="/SignUp">
-        <p>Create new account</p>
-      </Link>
-    </div>
+    <Header>
+      <Logo>Family Recipe App</Logo>
+    </Header>
+    <PageContainer>
+      <CardWrapper>
+        <Heading>Welcome Back</Heading>
+        <form onSubmit={handleSubmit}>
+          <TextInputStyle
+            label="Username"
+            type="username"
+            name="username"
+            value={formState.username}
+            onChange={handleChange}
+          />
+          <TextInputStyle
+            label="Password"
+            type="password"
+            name="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <br />
+          {/* <Link to="/return-user-dash"> */}
+            <PrimaryButton action="Login" />
+          {/* </Link> */}
+        </form>
+        <SecondHeading>I'm new here</SecondHeading>
+        <Link style={{ textDecoration: "none" }} to="/SignUp">
+          <AltLink>Create new account</AltLink>
+        </Link>
+      </CardWrapper>
+    </PageContainer>
+  </div>
   );
 }
