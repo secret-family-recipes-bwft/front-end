@@ -26,95 +26,96 @@ export default function Directions() {
     formState(defaultState);
   }
 
-  return (
-    <PageContainer>
-      <Header>
-        <Logo>Family Recipe App</Logo>
-        <ProgressHeader>Step 3: How do you make this recipe? </ProgressHeader>
-      </Header>
-      <ProgressBarDiv>
-        <ProgressSignifier />
-      </ProgressBarDiv>
-      <FormContainer>
-        <FieldsContainer>
-          <StatusLayoutDiv>
-            <StatusContainer>
-              <Heading>What are the directions?</Heading>
-              <form onSubmit={handleSubmit}>
-                {/*  */}
-                <InputDiv>
-                  <TextAreaInput
-                    name="step1"
-                    placeholder="Step 1"
-                    value={formState.step1}
-                    onChange={handleChange}
-                    // cols="10"
-                    // rows="10"
-                  />
-                </InputDiv>
-                {/*  */}
-                <InputDiv>
-                  <TextAreaInput
-                    name="step2"
-                    placeholder="Step 2"
-                    value={formState.step2}
-                    onChange={handleChange}
-                    // cols="10"
-                    // rows="10"
-                  />
-                </InputDiv>
-                {/*  */}
-                <InputDiv>
-                  <TextAreaInput
-                    name="step3"
-                    placeholder="Step 3"
-                    value={formState.step3}
-                    onChange={handleChange}
-                    // cols="10"
-                    // rows="10"
-                  />
-                </InputDiv>
-                {/*  */}
-                <InputDiv>
-                  <TextAreaInput
-                    name="step4"
-                    placeholder="Step 4"
-                    value={formState.step4}
-                    onChange={handleChange}
-                    // cols="10"
-                    // rows="10"
-                  />
-                </InputDiv>
-                {/*  */}
-                <InputDiv>
-                  <TextAreaInputLast
-                    name="step5"
-                    placeholder="Step 5"
-                    value={formState.step5}
-                    onChange={handleChange}
-                    // cols="10"
-                    // rows="10"
-                  />
-                </InputDiv>
-                {/*  */}
-              </form>
-            </StatusContainer>
-          </StatusLayoutDiv>
-          <FormNavigation>
-            <ButtonDiv>
-              <Link to="/the-ingredients">
-                <BackButton>Back</BackButton>
-              </Link>
-              <Link to="/recipe-created-success">
-                <NextButton>Next</NextButton>
-              </Link>
-            </ButtonDiv>
-          </FormNavigation>
-        </FieldsContainer>
-        {/* <ContentConatiner></ContentConatiner> */}
-      </FormContainer>
-    </PageContainer>
-
+  return ( <h1>Directions</h1>)
+}
+    // <PageContainer>
+    //   <Header>
+    //     <Logo>Family Recipe App</Logo>
+    //     <ProgressHeader>Step 3: How do you make this recipe? </ProgressHeader>
+    //   </Header>
+    //   <ProgressBarDiv>
+    //     <ProgressSignifier />
+    //   </ProgressBarDiv>
+    //   <FormContainer>
+    //     <FieldsContainer>
+    //       <StatusLayoutDiv>
+    //         <StatusContainer>
+    //           <Heading>What are the directions?</Heading>
+    //           <form onSubmit={handleSubmit}>
+    //             {/*  */}
+    //             <InputDiv>
+    //               <TextAreaInput
+    //                 name="step1"
+    //                 placeholder="Step 1"
+    //                 value={formState.step1}
+    //                 onChange={handleChange}
+    //                 // cols="10"
+    //                 // rows="10"
+    //               />
+    //             </InputDiv>
+    //             {/*  */}
+    //             <InputDiv>
+    //               <TextAreaInput
+    //                 name="step2"
+    //                 placeholder="Step 2"
+    //                 value={formState.step2}
+    //                 onChange={handleChange}
+    //                 // cols="10"
+    //                 // rows="10"
+    //               />
+    //             </InputDiv>
+    //             {/*  */}
+    //             <InputDiv>
+    //               <TextAreaInput
+    //                 name="step3"
+    //                 placeholder="Step 3"
+    //                 value={formState.step3}
+    //                 onChange={handleChange}
+    //                 // cols="10"
+    //                 // rows="10"
+    //               />
+    //             </InputDiv>
+    //             {/*  */}
+    //             <InputDiv>
+    //               <TextAreaInput
+    //                 name="step4"
+    //                 placeholder="Step 4"
+    //                 value={formState.step4}
+    //                 onChange={handleChange}
+    //                 // cols="10"
+    //                 // rows="10"
+    //               />
+    //             </InputDiv>
+    //             {/*  */}
+    //             <InputDiv>
+    //               <TextAreaInputLast
+    //                 name="step5"
+    //                 placeholder="Step 5"
+    //                 value={formState.step5}
+    //                 onChange={handleChange}
+    //                 // cols="10"
+    //                 // rows="10"
+    //               />
+    //             </InputDiv>
+    //             {/*  */}
+    //           </form>
+    //         </StatusContainer>
+    //       </StatusLayoutDiv>
+    //       <FormNavigation>
+    //         <ButtonDiv>
+    //           <Link to="/the-ingredients">
+    //             <BackButton>Back</BackButton>
+    //           </Link>
+    //           <Link to="/recipe-created-success">
+    //             <NextButton>Next</NextButton>
+    //           </Link>
+    //         </ButtonDiv>
+    //       </FormNavigation>
+    //     </FieldsContainer>
+    //     {/* <ContentConatiner></ContentConatiner> */}
+    //   </FormContainer>
+    // </PageContainer>
+ 
     // <div>
     //   <h1>What are the directions?</h1>
     //   <form onSubmit={handleSubmit}>
@@ -262,5 +263,4 @@ export default function Directions() {
     //     </div>
     //   </form>
     // </div>
-  );
-}
+  
