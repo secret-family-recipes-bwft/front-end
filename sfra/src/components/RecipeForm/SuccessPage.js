@@ -103,7 +103,7 @@ export default function SuccessPage() {
   return (
     <PageContainer>
       <Header>
-        <Logo>Family Recipe App</Logo>
+        <Logo>kin cook</Logo>
         <ProgressHeader>Success, your recipe was created! </ProgressHeader>
       </Header>
       <ProgressBarDiv>

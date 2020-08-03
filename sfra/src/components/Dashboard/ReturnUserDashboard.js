@@ -86,7 +86,7 @@ export default function ReturnUserDashboard() {
     <div>
       <Header>
         <Link style={{ textDecoration: "none" }} to="/dash">
-          <Logo>Family Recipe App</Logo>
+          <Logo>kin cook</Logo>
         </Link>
 
         <Link to="/start-screen">

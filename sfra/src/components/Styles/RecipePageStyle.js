@@ -417,7 +417,7 @@ export default function RecipePageStyle() {
         <OverLay />
         <Header>
           <Link style={{ textDecoration: "none" }} to="/return-user-dash">
-            <Logo>Family Recipe App</Logo>
+            <Logo>kin cook</Logo>
           </Link>
 
           {/* <ButtonDiv>

@@ -195,7 +195,7 @@ export default function TheStoryTradition() {
   return (
     <PageContainer>
       <Header>
-        <Logo>Family Recipe App</Logo>
+        <Logo>kin cook</Logo>
         <ProgressHeader>Step 1: What’s the story? </ProgressHeader>
       </Header>
       <ProgressBarDiv>

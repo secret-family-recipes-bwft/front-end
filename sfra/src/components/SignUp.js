@@ -193,7 +193,7 @@ export default function SignUp() {
   return (
     <div>
       <Header>
-        <Logo>Family Recipe App</Logo>
+        <Logo>kin cook</Logo>
       </Header>
       <PageContainer>
         <CardWrapper>

@@ -47,6 +47,8 @@ const ContentDivider = styled.div`
   border: 1px solid #bdbdbd;
   margin: 0 auto;
   margin-top: 120px;
+  background: #bdbdbd;
+  border-radius: 200px;
 `;
 
 const OoppsDiv = styled.div`
@@ -89,7 +91,7 @@ export default function NewUserDashboard() {
     <div>
       <Header>
         <Link style={{ textDecoration: "none" }} to="/dash">
-          <Logo>Family Recipe App</Logo>
+          <Logo>kin cook</Logo>
         </Link>
 
         <Link to="/start-screen">

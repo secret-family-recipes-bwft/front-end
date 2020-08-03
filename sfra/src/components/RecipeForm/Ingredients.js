@@ -200,7 +200,7 @@ export default function Ingredients() {
   return (
     <PageContainer>
       <Header>
-        <Logo>Family Recipe App</Logo>
+        <Logo>kin cook</Logo>
         <ProgressHeader>Step 3: How do you make this recipe? </ProgressHeader>
       </Header>
       <ProgressBarDiv>

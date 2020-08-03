@@ -231,7 +231,7 @@ export default function StartScreen() {
   return (
     <PageContainer>
       <Header>
-        <Logo>Family Recipe App</Logo>
+        <Logo>kin cook</Logo>
         <ProgressHeader>
           Step 2: What can you expect from this recipe?{" "}
         </ProgressHeader>
