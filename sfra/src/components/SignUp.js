@@ -64,78 +64,79 @@ export default function SignUp() {
   };
 
   const [formState, setFormState] = useState(defaultState);
+  const [errors, setErrors] = useState('');
   const history = useHistory()
 
   const postUser = (input) => {
-  //   axiosWithAuth()
-  //     .post(
-  //       "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/register",
-  //       input
-  //     )
-  //     .then((res) => {
-  //       console.log(res);
-  //       window.localStorage.setItem('token', res.data.token)
-  //       history.push('/new-user-dash')
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+    axiosWithAuth()
+      .post(
+        "https://bw-secret-family-recipes-1.herokuapp.com/api/auth/register",
+        input
+      )
+      .then((res) => {
+        console.log(res);
+        window.localStorage.setItem('token', res.data.token)
+        history.push('/new-user-dash')
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  // const formSchema = yup.object().shape({
-  //   username: yup
-  //     .string()
-  //     .min(4, "Please provide your username")
-  //     .required("Please provide a name for your recipe"),
-  //   email: yup
-  //     .string()
-  //     .required("Please provide an email")
-  //     .email("Please provide a valid email"),
-  //   password: yup
-  //     .string()
-  //     .min(8, "Passwords must be at least 4 characters long")
-  //     .required("Password are required"),
-  // });
+  const formSchema = yup.object().shape({
+    username: yup
+      .string()
+      .min(4, "Please provide your username")
+      .required("Please provide a name for your recipe"),
+    email: yup
+      .string()
+      .required("Please provide an email")
+      .email("Please provide a valid email"),
+    password: yup
+      .string()
+      .min(8, "Passwords must be at least 4 characters long")
+      .required("Password are required"),
+  });
 
-  // function validateChange(e) {
-  //   e.persist();
+  function validateChange(e) {
+    e.persist();
 
-  //   yup
-  //     .reach(formSchema, e.target.name)
-  //     .validate(e.target.value)
-  //     .then((valid) => {
-  //       setErrors({ ...errors, [e.target.name]: "" });
-  //     })
-  //     .catch((error) => {
-  //       setErrors({ ...errors, [e.target.name]: error.errors[0] });
-  //     });
-  // }
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
 
-  // function validateChange(e) {
-  //   e.persist();
+  function validateChange(e) {
+    e.persist();
 
-  //   yup
-  //     .reach(formSchema, e.target.name)
-  //     .validate(e.target.value)
-  //     .then((valid) => {
-  //       setErrors({ ...errors, [e.target.name]: "" });
-  //     })
-  //     .catch((error) => {
-  //       setErrors({ ...errors, [e.target.name]: error.errors[0] });
-  //     });
-  // }
+    yup
+      .reach(formSchema, e.target.name)
+      .validate(e.target.value)
+      .then((valid) => {
+        setErrors({ ...errors, [e.target.name]: "" });
+      })
+      .catch((error) => {
+        setErrors({ ...errors, [e.target.name]: error.errors[0] });
+      });
+  }
 
-  // function handleChange(e) {
-  //   const value =
-  //     e.target.type === "checkbox" ? e.target.checked : e.target.value;
-  //   setFormState({ ...formState, [e.target.name]: value });
-  // }
+  function handleChange(e) {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    setFormState({ ...formState, [e.target.name]: value });
+  }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   postUser(formState);
-  //   setFormState(defaultState);
-  // }
+  function handleSubmit(e) {
+    e.preventDefault();
+    postUser(formState);
+    setFormState(defaultState);
+  }
 
   return (
 <h1>Sign-up</h1>
@@ -186,4 +187,3 @@ export default function SignUp() {
 //   </CardWrapper>
 // </PageContainer>
 // </div>
-

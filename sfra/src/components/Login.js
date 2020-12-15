@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {axiosWithAuth} from '../utils/AxiosWithAuth';
-
+import * as yup from 'yup';
 import TextInputStyle from "./Styles/TextInputStyle";
 import PrimaryButton from "./Styles/PrimaryButton";
 import styled from "styled-components";
@@ -64,6 +64,7 @@ export default function Login() {
   };
 
   const [formState, setFormState] = useState(defaultState);
+  const [errors, setErrors] = useState('')
   const history = useHistory();
 
   const postUser = (input) => {
