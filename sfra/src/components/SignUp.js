@@ -4,6 +4,7 @@ import {axiosWithAuth} from "../utils/AxiosWithAuth";
 import TextInputStyle from "./Styles/TextInputStyle";
 import PrimaryButton from "./Styles/PrimaryButton";
 import styled from "styled-components";
+import * as yup from 'yup';
 
 const PageContainer = styled.div`
   display: flex;
@@ -63,6 +64,7 @@ export default function SignUp() {
   };
 
   const [formState, setFormState] = useState(defaultState);
+  const [errors, setErrors] = useState('');
   const history = useHistory()
 
   const postUser = (input) => {
@@ -137,48 +139,51 @@ export default function SignUp() {
   }
 
   return (
-    <div>
-    <Header>
-      <Logo>Family Recipe App</Logo>
-    </Header>
-    <PageContainer>
-      <CardWrapper>
-        <Heading>Nice to meet you</Heading>
-        <form onSubmit={handleSubmit}>
-          <TextInputStyle
-            label="Username"
-            type="username"
-            name="username"
-            value={formState.username}
-            onChange={handleChange}
-          />
-          <TextInputStyle
-            label="Email"
-            type="email"
-            name="email"
-            value={formState.email}
-            onChange={handleChange}
-          />
-          <TextInputStyle
-            label="Password"
-            type="password"
-            name="password"
-            value={formState.password}
-            onChange={handleChange}
-          />
-          <br />
-          <br />
-          <br />
-          {/* <Link to="/new-user-dash"> */}
-            <PrimaryButton action="Sign Up" />
-          {/* </Link> */}
-        </form>
-        <SecondHeading>I have an account</SecondHeading>
-        <Link style={{ textDecoration: "none" }} to="/">
-          <AltLink>Login</AltLink>
-        </Link>
-      </CardWrapper>
-    </PageContainer>
-  </div>
+<h1>Sign-up</h1>
   );
 }
+
+
+// <div>
+// <Header>
+//   <Logo>Family Recipe App</Logo>
+// </Header>
+// <PageContainer>
+//   <CardWrapper>
+//     <Heading>Nice to meet you</Heading>
+//     <form onSubmit={handleSubmit}>
+//       <TextInputStyle
+//         label="Username"
+//         type="username"
+//         name="username"
+//         value={formState.username}
+//         onChange={handleChange}
+//       />
+//       <TextInputStyle
+//         label="Email"
+//         type="email"
+//         name="email"
+//         value={formState.email}
+//         onChange={handleChange}
+//       />
+//       <TextInputStyle
+//         label="Password"
+//         type="password"
+//         name="password"
+//         value={formState.password}
+//         onChange={handleChange}
+//       />
+//       <br />
+//       <br />
+//       <br />
+//       {/* <Link to="/new-user-dash"> */}
+//         <PrimaryButton action="Sign Up" />
+//       {/* </Link> */}
+//     </form>
+//     <SecondHeading>I have an account</SecondHeading>
+//     <Link style={{ textDecoration: "none" }} to="/">
+//       <AltLink>Login</AltLink>
+//     </Link>
+//   </CardWrapper>
+// </PageContainer>
+// </div>
